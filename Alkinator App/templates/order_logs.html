@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bestellungsprotokoll</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Bestellungsprotokoll</h1>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cocktail ID</th>
+                    <th>Bestellzeit</th>
+                    <th>IP-Adresse</th>
+                    <th>User-Agent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order['id'] }}</td>
+                    <td>{{ order['cocktail_id'] }}</td>
+                    <td>{{ order['order_time'] }}</td>
+                    <td>{{ order['ip_address'] }}</td>
+                    <td>{{ order['user_agent'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Zurück zur Hauptseite</a>
+    </div>
+</body>
+</html>

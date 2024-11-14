@@ -2,18 +2,27 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Grundlegende Einstellungen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grundeinstellungen</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Grundlegende Einstellungen</h1>
-    <form method="post">
-        <label>SPS IP-Adresse:</label>
-        <input type="text" name="sps_ip" value="{{ sps_ip }}" required><br>
-        <label>Rack:</label>
-        <input type="number" name="rack" value="{{ rack }}" required><br>
-        <label>Slot:</label>
-        <input type="number" name="slot" value="{{ slot }}" required><br>
-        <button type="submit">Speichern</button>
-    </form>
+    <div class="container mt-5">
+        <h1 class="text-center">Grundeinstellungen</h1>
+        <p class="text-center text-muted">Hier können Sie die Grundeinstellungen konfigurieren</p>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="basic_setting1">Grundeinstellung 1</label>
+                <input type="text" class="form-control" id="basic_setting1" name="basic_setting1" value="{{ basic_settings.get('basic_setting1', '') }}" placeholder="Wert eingeben">
+            </div>
+            <div class="form-group">
+                <label for="basic_setting2">Grundeinstellung 2</label>
+                <input type="text" class="form-control" id="basic_setting2" name="basic_setting2" value="{{ basic_settings.get('basic_setting2', '') }}" placeholder="Wert eingeben">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Speichern</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Zurück zur Hauptseite</a>
+        </form>
+    </div>
 </body>
 </html>

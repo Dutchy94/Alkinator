@@ -2,28 +2,27 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Flaschenparameter einstellen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Einstellungen</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Flaschenparameter</h1>
-    <form method="post">
-        {% for i in range(1, 51) %}
-            <h3>Flasche {{ i }}</h3>
-            <label>X-Position:</label>
-            <input type="number" name="x_pos_{{ i }}" required><br>
-            <label>Y-Position:</label>
-            <input type="number" name="y_pos_{{ i }}" required><br>
-            <label>Volumen:</label>
-            <input type="number" name="volumen_{{ i }}" required><br>
-            <label>Dosierart:</label>
-            <select name="dosierart_{{ i }}">
-                <option value="hübe">Hübe</option>
-                <option value="zeit">Zeit</option>
-            </select><br>
-            <label>Dosiermenge:</label>
-            <input type="number" name="dosiermenge_{{ i }}" required><br>
-        {% endfor %}
-        <button type="submit">Speichern</button>
-    </form>
+    <div class="container mt-5">
+        <h1 class="text-center">Einstellungen</h1>
+        <p class="text-center text-muted">Hier können Sie Ihre allgemeinen Einstellungen anpassen</p>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="setting1">Beispiel-Einstellung 1</label>
+                <input type="text" class="form-control" id="setting1" name="setting1" value="{{ settings.get('setting1', '') }}" placeholder="Wert eingeben">
+            </div>
+            <div class="form-group">
+                <label for="setting2">Beispiel-Einstellung 2</label>
+                <input type="text" class="form-control" id="setting2" name="setting2" value="{{ settings.get('setting2', '') }}" placeholder="Wert eingeben">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Speichern</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Zurück zur Hauptseite</a>
+        </form>
+    </div>
 </body>
 </html>

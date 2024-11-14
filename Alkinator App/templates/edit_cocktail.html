@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cocktail bearbeiten</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons für das Kreuzsymbol -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 </head>
 <body>
 <div class="container mt-5">
@@ -22,16 +24,64 @@
             <label>Beschreibung</label>
             <textarea name="description" class="form-control">{{ cocktail['description'] }}</textarea>
         </div>
+        
+        <!-- Aufrufzähler und Zurücksetzen -->
+        <div class="form-group">
+            <label>Aufrufe: {{ cocktail['counter'] }}</label>
+            <button type="submit" name="reset_counter" class="btn btn-warning">Zähler zurücksetzen</button>
+        </div>
+        
+        <!-- Eingabefeld für Bild hochladen -->
         <div class="form-group">
             <label>Neues Bild hochladen (optional)</label>
             <input type="file" name="image" class="form-control">
-            {% if cocktail['image_path'] is not none %}
-                <p>Aktuelles Bild:</p>
-                <img src="{{ url_for('static', filename=cocktail['image_path'][7:]) }}" alt="{{ cocktail['name'] }}" style="max-width: 200px;">
+            
+            <!-- Aktuelles Bild anzeigen, falls vorhanden -->
+            {% if cocktail['image_path'] %}
+                <div id="image-container" class="position-relative mt-3">
+                    <img src="{{ url_for('static', filename=cocktail['image_path'][7:]) }}" alt="{{ cocktail['name'] }}" style="max-width: 200px;">
+                    
+                    <!-- Button zum Entfernen des Bildes -->
+                    <button type="button" class="btn btn-link p-0" style="position: absolute; top: 5px; right: 5px; color: red;" onclick="removeImage({{ cocktail['id'] }})">
+                        <i class="bi bi-x-circle-fill" style="font-size: 1.5rem;"></i>
+                    </button>
+                </div>
             {% endif %}
-        </div>        
+        </div>
+
+        <!-- Button zum Speichern der Änderungen -->
         <button type="submit" class="btn btn-primary">Änderungen speichern</button>
     </form>
 </div>
+
+<!-- JavaScript für AJAX-Anfrage zum Entfernen des Bildes -->
+<script>
+function removeImage(cocktailId) {
+    if (confirm("Möchtest du das Bild wirklich löschen?")) {
+        fetch(`/remove_image_path/${cocktailId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Entferne das Bild und das Kreuz aus der Ansicht
+                const imageContainer = document.getElementById('image-container');
+                if (imageContainer) {
+                    imageContainer.remove();
+                }
+                alert("Bild erfolgreich entfernt.");
+            } else {
+                alert("Fehler beim Entfernen des Bildes.");
+            }
+        })
+        .catch((error) => {
+            console.error('Fehler:', error);
+        });
+    }
+}
+</script>
 </body>
 </html>
