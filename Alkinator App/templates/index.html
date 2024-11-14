@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cocktail Auswahl</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS für das Zahnrad-Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Cocktail Auswahl</h1>
+    <p class="text-center text-muted">Wähle aus unseren einzigartigen Cocktails oder erstelle deinen eigenen.</p>
+
+    <!-- Cocktail-Auswahl als Liste -->
+    <div class="row">
+        {% for cocktail in cocktails %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm position-relative">
+                <!-- Zahnrad-Symbol oben rechts -->
+                <a href="{{ url_for('edit_cocktail', id=cocktail['id']) }}" class="position-absolute" style="top: 10px; right: 10px; color: gray;">
+                    <i class="bi bi-gear" style="font-size: 1.5rem;"></i>
+                </a>
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{ cocktail['name'] }}</h5>
+                    <p class="card-text">{{ cocktail['description'] or "Ein leckerer Cocktail." }}</p>
+                    <p><strong>Zutaten:</strong> {{ cocktail['ingredients'] }}</p>
+                    {% if cocktail['image_path'] %}
+                    <img src="{{ url_for('static', filename=cocktail['image_path'][7:]) }}" alt="{{ cocktail['name'] }}" style="max-width: 100%;">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{{ url_for('create_cocktail') }}" class="btn btn-success">Eigenen Cocktail erstellen</a>
+    </div>
+</div>
+</body>
+</html>
