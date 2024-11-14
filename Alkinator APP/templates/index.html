@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Cocktail Auswahl</title>
+</head>
+<body>
+    <h1>Wähle deinen Cocktail</h1>
+    <ul>
+        {% for cocktail in cocktails %}
+            <li>{{ cocktail }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('settings') }}">Einstellungen für Flaschenparameter</a>
+    <a href="{{ url_for('create_cocktail') }}">Cocktail erstellen</a>
+    <a href="{{ url_for('basic_settings') }}">Grundlegende Einstellungen</a>
+</body>
+</html>

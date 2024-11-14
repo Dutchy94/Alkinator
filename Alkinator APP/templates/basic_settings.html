@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Grundlegende Einstellungen</title>
+</head>
+<body>
+    <h1>Grundlegende Einstellungen</h1>
+    <form method="post">
+        <label>SPS IP-Adresse:</label>
+        <input type="text" name="sps_ip" value="{{ sps_ip }}" required><br>
+        <label>Rack:</label>
+        <input type="number" name="rack" value="{{ rack }}" required><br>
+        <label>Slot:</label>
+        <input type="number" name="slot" value="{{ slot }}" required><br>
+        <button type="submit">Speichern</button>
+    </form>
+</body>
+</html>
