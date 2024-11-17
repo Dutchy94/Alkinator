@@ -6,7 +6,6 @@
     <title>Cocktail erstellen</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-
 </head>
 <body>
 <div class="container mt-5">
@@ -28,6 +27,25 @@
             <label>Bild hochladen</label>
             <input type="file" name="image" class="form-control">
         </div>
+        
+        <!-- Flaschen-Zutaten -->
+        <h5>Flaschen und Mengen</h5>
+        {% for index, flasche in enumerate(flaschen, start=1) %}
+        {% if flasche.name.strip() %}
+        <div class="row mb-3">
+            <!-- Flaschenname anzeigen -->
+            <div class="col-md-8">
+                <label for="flasche_{{ index }}">Flasche {{ index }}: {{ flasche.name }}</label>
+            </div>
+            <!-- Menge eingeben -->
+            <div class="col-md-4">
+                <label for="menge_{{ index }}">Menge (ml)</label>
+                <input type="number" step="1" id="menge_{{ index }}" name="menge_{{ index }}" class="form-control">
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        
         <button type="submit" class="btn btn-primary">Cocktail speichern</button>
     </form>
 </div>

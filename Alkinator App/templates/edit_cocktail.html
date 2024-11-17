@@ -6,82 +6,102 @@
     <title>Cocktail bearbeiten</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons für das Kreuzsymbol -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-5">
     <h1 class="text-center">Cocktail bearbeiten</h1>
     <form method="post" action="{{ url_for('edit_cocktail', id=cocktail['id']) }}" enctype="multipart/form-data">
+        <!-- Cocktail-Name -->
         <div class="form-group">
-            <label>Name des Cocktails</label>
-            <input type="text" name="name" class="form-control" value="{{ cocktail['name'] }}" required>
+            <label for="name">Name des Cocktails</label>
+            <input type="text" name="name" id="name" class="form-control" value="{{ cocktail['name'] }}" required>
         </div>
+        <!-- Cocktail-Beschreibung -->
         <div class="form-group">
-            <label>Zutaten</label>
-            <textarea name="ingredients" class="form-control" required>{{ cocktail['ingredients'] }}</textarea>
-        </div>
-        <div class="form-group">
-            <label>Beschreibung</label>
-            <textarea name="description" class="form-control">{{ cocktail['description'] }}</textarea>
+            <label for="description">Beschreibung</label>
+            <textarea name="description" id="description" class="form-control">{{ cocktail['description'] }}</textarea>
         </div>
         
-        <!-- Aufrufzähler und Zurücksetzen -->
+        <!-- Aufrufzähler -->
         <div class="form-group">
             <label>Aufrufe: {{ cocktail['counter'] }}</label>
             <button type="submit" name="reset_counter" class="btn btn-warning">Zähler zurücksetzen</button>
         </div>
         
-        <!-- Eingabefeld für Bild hochladen -->
         <div class="form-group">
+            <label>Aktuelles Bild</label>
+            {% if cocktail['image_path'] %}
+                <img src="{{ url_for('static', filename=cocktail['image_path']) }}" alt="{{ cocktail['name'] }}"
+                     style="max-width: 256px; max-height: 256px; object-fit: cover;" class="mb-3">
+            {% else %}
+                <p>Kein Bild verfügbar</p>
+            {% endif %}
             <label>Neues Bild hochladen (optional)</label>
             <input type="file" name="image" class="form-control">
-            
-            <!-- Aktuelles Bild anzeigen, falls vorhanden -->
-            {% if cocktail['image_path'] %}
-                <div id="image-container" class="position-relative mt-3">
-                    <img src="{{ url_for('static', filename=cocktail['image_path'][7:]) }}" alt="{{ cocktail['name'] }}" style="max-width: 200px;">
-                    
-                    <!-- Button zum Entfernen des Bildes -->
-                    <button type="button" class="btn btn-link p-0" style="position: absolute; top: 5px; right: 5px; color: red;" onclick="removeImage({{ cocktail['id'] }})">
-                        <i class="bi bi-x-circle-fill" style="font-size: 1.5rem;"></i>
-                    </button>
-                </div>
-            {% endif %}
         </div>
-
-        <!-- Button zum Speichern der Änderungen -->
+        
+        <!-- Eingabefelder für Flaschen -->
+        <h5>Flaschen und Mengen</h5>
+        {% for index, flasche in enumerate(flaschen, start=1) %}
+        {% if flasche.name.strip() %}
+        <div class="row mb-3">
+            <!-- Flaschenname anzeigen -->
+            <div class="col-md-8">
+                <label for="flasche_{{ index }}">Flasche {{ index }}: {{ flasche.name }}</label>
+            </div>
+            <!-- Menge vorfüllen -->
+            <div class="col-md-4">
+                <label for="menge_{{ index }}">Menge (ml)</label>
+                <input type="number" name="menge_{{ index }}" id="menge_{{ index }}" 
+                    class="form-control" min="0" step="1"
+                    value="{{ flasche.menge }}">
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        
+        <!-- Speichern und Abbrechen -->
         <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Abbrechen</a>
     </form>
 </div>
 
-<!-- JavaScript für AJAX-Anfrage zum Entfernen des Bildes -->
+<!-- JavaScript zur Validierung der Eingabe -->
 <script>
-function removeImage(cocktailId) {
-    if (confirm("Möchtest du das Bild wirklich löschen?")) {
-        fetch(`/remove_image_path/${cocktailId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Entferne das Bild und das Kreuz aus der Ansicht
-                const imageContainer = document.getElementById('image-container');
-                if (imageContainer) {
-                    imageContainer.remove();
-                }
-                alert("Bild erfolgreich entfernt.");
-            } else {
-                alert("Fehler beim Entfernen des Bildes.");
-            }
-        })
-        .catch((error) => {
-            console.error('Fehler:', error);
-        });
+    function validateInput(input) {
+        // Nur Ganzzahlen zulassen
+        const value = input.value;
+        if (!/^\d+$/.test(value)) {
+            input.value = value.replace(/[^0-9]/g, ''); // Entferne ungültige Zeichen
+        }
     }
-}
+
+    function removeImage(cocktailId) {
+        if (confirm("Möchtest du das Bild wirklich löschen?")) {
+            fetch(`/remove_image_path/${cocktailId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const imageContainer = document.getElementById('image-container');
+                    if (imageContainer) {
+                        imageContainer.remove();
+                    }
+                    alert("Bild erfolgreich entfernt.");
+                } else {
+                    alert("Fehler beim Entfernen des Bildes.");
+                }
+            })
+            .catch((error) => {
+                console.error('Fehler:', error);
+            });
+        }
+    }
 </script>
 </body>
 </html>

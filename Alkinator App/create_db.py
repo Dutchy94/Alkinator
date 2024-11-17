@@ -16,6 +16,18 @@ cursor.execute('''
     )
 ''')
 
+# Cocktail Inhalte mit UNIQUE-Einschränkung
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS cocktail_ingredients (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        cocktail_id INTEGER NOT NULL,
+        flasche_name TEXT NOT NULL,
+        menge_ml REAL NOT NULL,
+        UNIQUE(cocktail_id, flasche_name),  -- Eindeutige Einschränkung
+        FOREIGN KEY(cocktail_id) REFERENCES cocktails(id)
+    )
+''')
+
 # Tabelle für allgemeine Einstellungen erstellen, falls sie noch nicht existiert
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS settings (
@@ -24,6 +36,19 @@ cursor.execute('''
         value TEXT
     )
 ''')
+
+# Standard-IP-Adresse der SPS hinzufügen, falls noch nicht vorhanden
+cursor.execute('''
+    INSERT OR IGNORE INTO settings (name, value) VALUES (?, ?)
+''', ('sps_ip', '192.168.178.50'))
+
+# Zusätzliche SPS-bezogene Einstellungen hinzufügen, falls benötigt
+cursor.execute('''
+    INSERT OR IGNORE INTO settings (name, value) VALUES (?, ?)
+''', ('sps_rack', '0'))  # Beispiel für Rack-Nummer
+cursor.execute('''
+    INSERT OR IGNORE INTO settings (name, value) VALUES (?, ?)
+''', ('sps_slot', '1'))  # Beispiel für Slot-Nummer
 
 # Tabelle für Grundeinstellungen erstellen, falls sie noch nicht existiert
 cursor.execute('''
@@ -46,6 +71,20 @@ cursor.execute('''
     )
 ''')
 
+# Tabelle für Benutzer erstellen
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL
+    )
+''')
+
+# Standardbenutzer hinzufügen (falls sie nicht existieren)
+cursor.execute('INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)', ('Default', ''))
+cursor.execute('INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)', ('Hölker', 'hoelker123'))
+cursor.execute('INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)', ('Schülting', 'schuelting123'))
+
 # Überprüfen, ob das Feld `image_path` existiert; falls nicht, hinzufügen
 try:
     cursor.execute('SELECT image_path FROM cocktails LIMIT 1')
@@ -64,4 +103,4 @@ except sqlite3.OperationalError:
 conn.commit()
 conn.close()
 
-print("Datenbank und Tabelle 'cocktails' erfolgreich mit allen erforderlichen Feldern erstellt.")
+print("Datenbank und Tabellen erfolgreich mit allen erforderlichen Feldern erstellt.")

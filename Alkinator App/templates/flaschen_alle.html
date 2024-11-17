@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flaschen bearbeiten</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Flaschen bearbeiten</h1>
+        <form method="POST" action="{{ url_for('flaschen_alle') }}">
+            <div class="row">
+                {% for flasche in flaschen %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Flasche {{ loop.index }}</h5>
+                            
+                            <!-- Name -->
+                            <div class="form-group">
+                                <label for="name_{{ loop.index }}">Name</label>
+                                <input type="text" id="name_{{ loop.index }}" name="name_{{ loop.index }}" class="form-control" value="{{ flasche.name }}">
+                            </div>
+                            
+                            <!-- Position X -->
+                            <div class="form-group">
+                                <label for="x_{{ loop.index }}">Position X</label>
+                                <input type="number" step="0.01" id="x_{{ loop.index }}" name="x_{{ loop.index }}" class="form-control" value="{{ flasche.x }}" required>
+                            </div>
+                            
+                            <!-- Position Y -->
+                            <div class="form-group">
+                                <label for="y_{{ loop.index }}">Position Y</label>
+                                <input type="number" step="0.01" id="y_{{ loop.index }}" name="y_{{ loop.index }}" class="form-control" value="{{ flasche.y }}" required>
+                            </div>
+                            
+                            <!-- Dosier Art -->
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="dosier_art_{{ loop.index }}" name="dosier_art_{{ loop.index }}" {% if flasche.dosier_art %}checked{% endif %}>
+                                <label class="form-check-label" for="dosier_art_{{ loop.index }}">Dosierart (0 = Hub, 1 = Zeit)</label>
+                            </div>
+                            
+                            <!-- Dosiermenge -->
+                            <div class="form-group">
+                                <label for="dosiermenge_{{ loop.index }}">Dosiermenge (ml/Hub oder ml/min)</label>
+                                <input type="number" id="dosiermenge_{{ loop.index }}" name="dosiermenge_{{ loop.index }}" class="form-control" value="{{ flasche.dosiermenge }}" required>
+                            </div>
+                            
+                            <!-- Alkoholgehalt -->
+                            <div class="form-group">
+                                <label for="alkoholgehalt_{{ loop.index }}">Alkoholgehalt (%)</label>
+                                <input type="number" step="0.01" id="alkoholgehalt_{{ loop.index }}" name="alkoholgehalt_{{ loop.index }}" class="form-control" value="{{ flasche.alkoholgehalt }}" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+            <a href="{{ url_for('settings') }}" class="btn btn-secondary">Abbrechen</a>
+        </form>
+    </div>
+</body>
+</html>

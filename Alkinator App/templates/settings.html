@@ -9,20 +9,25 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Einstellungen</h1>
-        <p class="text-center text-muted">Hier können Sie Ihre allgemeinen Einstellungen anpassen</p>
 
-        <form method="POST">
+        <!-- SPS-IP-Adresse konfigurieren -->
+        <form method="POST" action="{{ url_for('settings') }}">
             <div class="form-group">
-                <label for="setting1">Beispiel-Einstellung 1</label>
-                <input type="text" class="form-control" id="setting1" name="setting1" value="{{ settings.get('setting1', '') }}" placeholder="Wert eingeben">
-            </div>
-            <div class="form-group">
-                <label for="setting2">Beispiel-Einstellung 2</label>
-                <input type="text" class="form-control" id="setting2" name="setting2" value="{{ settings.get('setting2', '') }}" placeholder="Wert eingeben">
+                <label for="sps_ip">Ziel-IP der SPS</label>
+                <input type="text" class="form-control" id="sps_ip" name="sps_ip" value="{{ sps_ip }}" placeholder="192.168.0.1" required>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Speichern</button>
-            <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Zurück zur Hauptseite</a>
         </form>
+        <hr>
+
+        <!-- Buttons für Zusatzoptionen -->
+        <div class="mt-5">
+            <a href="{{ url_for('flaschen_alle') }}" class="btn btn-secondary">
+                <i class="bi bi-boxes"></i> Flaschen alle bearbeiten
+            </a>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-5">Zurück zur Hauptseite</a>
     </div>
 </body>
 </html>

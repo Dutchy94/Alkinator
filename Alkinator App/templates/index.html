@@ -17,9 +17,51 @@
             font-size: 0.8rem;
             color: #6c757d;
         }
+        img.cocktail-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
+
+        <!-- Login-/Logout- und Benutzer-spezifische Symbole -->
+        <div class="header-icons d-flex">
+            {% if session.get('user') %}
+
+                {% if session['user'] == 'Default' %}
+                <a href="{{ url_for('create_cocktail') }}" class="btn btn-success mx-2">
+                    <i class="bi bi-plus-circle me-1"></i> Neuer Cocktail
+                </a>
+                {% endif %}
+                                <!-- Einstellungen-Button (nicht für 'Default') -->
+
+                <a href="{{ url_for('settings') }}" class="btn btn-outline-secondary" title="Einstellungen">
+                    <i class="bi bi-gear-fill"></i>
+                </a>
+                <!-- Logs-Button (für alle eingeloggt) -->
+                <a href="{{ url_for('order_logs') }}" class="btn btn-outline-secondary" title="Logs">
+                    <i class="bi bi-journal-text"></i>
+                </a>
+                <!-- Logout-Button -->
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-danger" title="Logout">
+                    <i class="bi bi-unlock-fill"></i>
+                </a>
+                <a href="{{ url_for('create_cocktail') }}" class="btn btn-success mx-2">
+                    <i class="bi bi-plus-circle me-1"></i> Neuer Cocktail
+                </a>
+                <div class="text-center mb-4">
+                    <button class="btn btn-warning" onclick="confirmGlasEntnommen()">Glas Entnommen & Leer vorhanden</button>
+                </div>
+            {% else %}
+                <!-- Login-Button -->
+                <a href="{{ url_for('login') }}" class="btn btn-outline-secondary" title="Login">
+                    <i class="bi bi-lock-fill"></i>
+                </a>
+            {% endif %}
+        </div>
+
     <div class="container mt-5">
         <h1 class="text-center">Alkinator Cocktail Auswahl</h1>
         <p class="text-center text-muted">Powered by Hölker & Schülting</p>
@@ -29,20 +71,31 @@
             {% for cocktail in cocktails %}
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm position-relative">
-                    <!-- Kleine ID-Anzeige oben rechts -->
-                    <div class="cocktail-id">ID: {{ cocktail['id'] }}</div>
+                    <!-- ID-Anzeige -->
+                    <span class="cocktail-id">ID: {{ cocktail['id'] }}</span>
+        
+                    <!-- Löschen-Button oben rechts -->
+                    <button class="btn btn-link text-danger position-absolute" 
+                            style="top: 10px; right: 10px;" 
+                            onclick="deleteCocktail({{ cocktail['id'] }})"
+                            title="Rezept löschen">
+                        <i class="bi bi-x-circle-fill"></i>
+                    </button>
+        
                     <div class="card-body">
                         <h5 class="card-title">{{ cocktail['name'] }}</h5>
                         <p class="card-text">{{ cocktail['description'] or "Ein leckerer Cocktail." }}</p>
                         <p><strong>Zutaten:</strong> {{ cocktail['ingredients'] }}</p>
                         <p><strong>Aufrufe:</strong> {{ cocktail['counter'] }}</p>
                         {% if cocktail['image_path'] %}
-                        <img src="{{ url_for('static', filename=cocktail['image_path'][7:]) }}" alt="{{ cocktail['name'] }}" style="max-width: 100%;">
+                        <img src="{{ url_for('static', filename=cocktail['image_path']) }}" 
+                            alt="{{ cocktail['name'] }}" 
+                            class="cocktail-image">
                         {% endif %}
-
+        
                         <!-- Bearbeiten-Button -->
                         <a href="{{ url_for('edit_cocktail', id=cocktail['id']) }}" class="btn btn-primary mt-2">Bearbeiten</a>
-
+        
                         <!-- Bestellen-Button in Grün -->
                         <button onclick="orderCocktail({{ cocktail['id'] }})" class="btn btn-success mt-2">Bestellen</button>
                     </div>
@@ -67,14 +120,66 @@
                 if (data.success) {
                     alert("Bestellung erfolgreich!");
                 } else {
-                    alert("Fehler bei der Bestellung.");
+                    alert("Fehler bei der Bestellung: " + (data.error || "Unbekannter Fehler."));
                 }
             })
             .catch((error) => {
                 console.error('Fehler:', error);
+                alert("Ein unerwarteter Fehler ist aufgetreten.");
             });
         }
     }
+
+    function confirmGlasEntnommen() {
+        if (confirm("Bist du sicher, dass das Glas entnommen wurde?")) {
+            fetch("/glas_entnommen", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Glas erfolgreich zurückgesetzt!");
+                } else {
+                    alert("Fehler beim Zurücksetzen: " + data.error);
+                }
+            })
+            .catch(error => {
+                console.error("Fehler:", error);
+                alert("Ein unerwarteter Fehler ist aufgetreten.");
+            });
+        }
+    }
+
+    function deleteCocktail(cocktailId) {
+        if (confirm("Möchtest du dieses Rezept wirklich löschen?")) {
+            fetch(`/delete_cocktail/${cocktailId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Fehler beim Löschen des Cocktails.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert("Rezept erfolgreich gelöscht!");
+                    location.reload(); // Seite neu laden
+                } else {
+                    alert("Fehler beim Löschen des Rezepts: " + (data.error || "Unbekannter Fehler."));
+                }
+            })
+            .catch((error) => {
+                console.error('Fehler:', error);
+                alert("Ein unerwarteter Fehler ist aufgetreten.");
+            });
+        }
+    }   
+
     </script>
 </body>
 </html>
