@@ -55,10 +55,18 @@
                     <button class="btn btn-warning" onclick="confirmGlasEntnommen()">Glas Entnommen & Leer vorhanden</button>
                 </div>
             {% else %}
+
+                
                 <!-- Login-Button -->
                 <a href="{{ url_for('login') }}" class="btn btn-outline-secondary" title="Login">
                     <i class="bi bi-lock-fill"></i>
                 </a>
+                <a href="{{ url_for('create_cocktail') }}" class="btn btn-success mx-2">
+                    <i class="bi bi-plus-circle me-1"></i> Neuer Cocktail
+                </a>
+                <div class="text-center mb-4">
+                    <button class="btn btn-warning" onclick="confirmGlasEntnommen()">Glas Entnommen & Leer vorhanden</button>
+                </div>
             {% endif %}
         </div>
 
@@ -75,12 +83,15 @@
                     <span class="cocktail-id">ID: {{ cocktail['id'] }}</span>
         
                     <!-- Löschen-Button oben rechts -->
-                    <button class="btn btn-link text-danger position-absolute" 
-                            style="top: 10px; right: 10px;" 
-                            onclick="deleteCocktail({{ cocktail['id'] }})"
-                            title="Rezept löschen">
-                        <i class="bi bi-x-circle-fill"></i>
-                    </button>
+                    {% if session.get('user') %}
+                        <button class="btn btn-link text-danger position-absolute" 
+                                style="top: 10px; right: 10px;" 
+                                onclick="deleteCocktail({{ cocktail['id'] }})"
+                                title="Rezept löschen">
+                            <i class="bi bi-x-circle-fill"></i>
+                        </button>
+                    {% endif %}
+
         
                     <div class="card-body">
                         <h5 class="card-title">{{ cocktail['name'] }}</h5>
@@ -152,34 +163,33 @@
     }
 
     function deleteCocktail(cocktailId) {
-        if (confirm("Möchtest du dieses Rezept wirklich löschen?")) {
-            fetch(`/delete_cocktail/${cocktailId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Fehler beim Löschen des Cocktails.");
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    alert("Rezept erfolgreich gelöscht!");
-                    location.reload(); // Seite neu laden
-                } else {
-                    alert("Fehler beim Löschen des Rezepts: " + (data.error || "Unbekannter Fehler."));
-                }
-            })
-            .catch((error) => {
-                console.error('Fehler:', error);
-                alert("Ein unerwarteter Fehler ist aufgetreten.");
-            });
-        }
-    }   
-
+    if (confirm("Möchtest du dieses Rezept wirklich löschen?")) {
+        fetch(`/delete_cocktail/${cocktailId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Fehler beim Löschen des Cocktails.");
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                alert("Rezept erfolgreich gelöscht!");
+                location.reload(); // Seite neu laden
+            } else {
+                alert("Fehler beim Löschen des Rezepts: " + (data.error || "Unbekannter Fehler."));
+            }
+        })
+        .catch((error) => {
+            console.error('Fehler:', error);
+            alert("Ein unerwarteter Fehler ist aufgetreten.");
+        });
+    }
+}
     </script>
 </body>
 </html>

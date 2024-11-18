@@ -449,7 +449,20 @@ def order_cocktail(id):
         print(f"Fehler bei der Bestellung: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
-    
+@app.route('/reset_counter/<int:id>', methods=['POST'])
+def reset_counter(id):
+    # Überprüfen, ob ein Benutzer eingeloggt ist
+    if not session.get('user'):
+        return jsonify({"success": False, "error": "Nicht autorisiert"}), 403
+
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
+
+        # Zähler zurücksetzen
+        cursor.execute('UPDATE cocktails SET counter = 0 WHERE id = ?', (id,))
+        conn.commit()
+
+    return jsonify({"success": True})   
 
 # Route für die Hauptseite (Cocktailauswahl), sortiert nach dem höchsten Zählerwert
 @app.route('/')
@@ -560,17 +573,16 @@ def edit_cocktail(id):
 @app.route('/delete_cocktail/<int:id>', methods=['POST'])
 def delete_cocktail(id):
     try:
+            # Überprüfen, ob ein Benutzer eingeloggt ist
+        if not session.get('user'):
+            return jsonify({"success": False, "error": "Nicht autorisiert"}), 403
+
         with get_db_connection() as conn:
             cursor = conn.cursor()
 
             # Cocktail löschen
             cursor.execute('DELETE FROM cocktails WHERE id = ?', (id,))
-            logging.info(f"Cocktail {id} gelöscht aus 'cocktails'.")
-
-            # Zugehörige Zutaten löschen
             cursor.execute('DELETE FROM cocktail_ingredients WHERE cocktail_id = ?', (id,))
-            logging.info(f"Zutaten für Cocktail {id} gelöscht aus 'cocktail_ingredients'.")
-
             conn.commit()
 
         return jsonify({"success": True})

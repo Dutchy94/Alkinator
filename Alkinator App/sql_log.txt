@@ -1658,3 +1658,218 @@
 [SQL TRACE]: COMMIT
 [SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
 [SQL TRACE]: SELECT * FROM orders ORDER BY order_time DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM users WHERE username = 'Hölker'
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('dfsd', 'sdfsdf', 'fsdf', NULL)
+                    
+[SQL TRACE]: 
+                            INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                            VALUES (13, 'Fanta', 23423)
+                            ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                            
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: DELETE FROM cocktails WHERE id = 13
+[SQL TRACE]: DELETE FROM cocktail_ingredients WHERE cocktail_id = 13
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM users WHERE username = 'Hölker'
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('fsdf', 'sdfds', 'sdfsdfsdf', NULL)
+                    
+[SQL TRACE]: 
+                            INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                            VALUES (14, 'Fanta', 33)
+                            ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                            
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 14
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 14
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 14
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 14
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM users WHERE username = 'Hölker'
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 14
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 14
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 14
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 14
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent)
+                VALUES (14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0')
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 14
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 14
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 14
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: UPDATE cocktails SET counter = 0 WHERE id = 14
+[SQL TRACE]: COMMIT
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'fsdf', description = 'sdfds'
+                    WHERE id = 14
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 14
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 14
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: DELETE FROM cocktails WHERE id = 14
+[SQL TRACE]: DELETE FROM cocktail_ingredients WHERE cocktail_id = 14
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM orders ORDER BY order_time DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent)
+                VALUES (12, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0')
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 12
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM orders ORDER BY order_time DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent)
+                VALUES (12, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0')
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 12
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM orders ORDER BY order_time DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE id = 12
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'TEST', description = 'TEST', image_path = 'uploads/WIN_20241010_21_26_07_Pro.jpg'
+                    WHERE id = 12
+                    
+[SQL TRACE]: 
+                    INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                    VALUES (12, 'Fanta', 100)
+                    ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                    
+[SQL TRACE]: 
+                    INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                    VALUES (12, 'Cola', 200)
+                    ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                    
+[SQL TRACE]: 
+                    INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                    VALUES (12, 'Korn', 40)
+                    ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent)
+                VALUES (12, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36')
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 12
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM users WHERE username = 'Hölker'
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('Felschinator', 'DASD', 'Cola', 'uploads/WIN_20241010_21_33_13_Pro.jpg')
+                    
+[SQL TRACE]: 
+                            INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                            VALUES (15, 'Cola', 200)
+                            ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                            
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 15
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 15
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent)
+                VALUES (15, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36')
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 15
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM orders ORDER BY order_time DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 15
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 15
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'Felschinator', description = 'DASD'
+                    WHERE id = 15
+                    
+[SQL TRACE]: 
+                    INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                    VALUES (15, 'Korn', 40)
+                    ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                    
+[SQL TRACE]: 
+                    INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                    VALUES (15, 'Korn2', 40)
+                    ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 15
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 15
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: UPDATE cocktails SET counter = 0 WHERE id = 15
+[SQL TRACE]: COMMIT
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'Felschinator', description = 'DASD'
+                    WHERE id = 15
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 15
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 15
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM users WHERE username = 'Hölker'
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: SELECT * FROM users WHERE username = 'Schülting'
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC

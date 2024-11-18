@@ -1109,3 +1109,256 @@
 2024-11-17 23:17:41,434 - INFO - disconnecting snap7 client
 2024-11-17 23:17:41,434 - INFO - destroying snap7 client
 2024-11-17 23:17:41,434 - INFO - 127.0.0.1 - - [17/Nov/2024 23:17:41] "POST /glas_entnommen HTTP/1.1" 200 -
+2024-11-18 16:37:11,417 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-18 16:37:11,418 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-18 16:37:11,419 - INFO -  * Restarting with stat
+2024-11-18 16:37:11,587 - WARNING -  * Debugger is active!
+2024-11-18 16:37:11,596 - INFO -  * Debugger PIN: 382-804-794
+2024-11-18 16:37:20,504 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:20] "GET / HTTP/1.1" 200 -
+2024-11-18 16:37:20,746 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-18 16:37:24,301 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:24] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-18 16:37:24,307 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:24] "GET / HTTP/1.1" 200 -
+2024-11-18 16:37:27,077 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:27] "[31m[1mPOST /delete_cocktail/12 HTTP/1.1[0m" 403 -
+2024-11-18 16:37:30,297 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:30] "GET /login HTTP/1.1" 200 -
+2024-11-18 16:37:31,440 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-18 16:37:31,447 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:31] "GET / HTTP/1.1" 200 -
+2024-11-18 16:37:32,304 - INFO - creating snap7 client
+2024-11-18 16:37:32,304 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:37:32,343 - INFO - destroying snap7 client
+2024-11-18 16:37:32,349 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:32] "GET /create_cocktail HTTP/1.1" 200 -
+2024-11-18 16:37:35,856 - INFO - creating snap7 client
+2024-11-18 16:37:35,857 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:37:35,892 - INFO - Cocktail dfsd mit ID 13 wurde erstellt. Bildpfad: None
+2024-11-18 16:37:35,900 - INFO - destroying snap7 client
+2024-11-18 16:37:35,900 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:35] "[32mPOST /create_cocktail HTTP/1.1[0m" 302 -
+2024-11-18 16:37:35,908 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:35] "GET / HTTP/1.1" 200 -
+2024-11-18 16:37:39,232 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:39] "POST /delete_cocktail/13 HTTP/1.1" 200 -
+2024-11-18 16:37:40,684 - INFO - 127.0.0.1 - - [18/Nov/2024 16:37:40] "GET / HTTP/1.1" 200 -
+2024-11-18 16:38:26,722 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-18 16:38:26,757 - INFO -  * Restarting with stat
+2024-11-18 16:38:26,912 - WARNING -  * Debugger is active!
+2024-11-18 16:38:26,914 - INFO -  * Debugger PIN: 382-804-794
+2024-11-18 16:40:31,947 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:31] "GET / HTTP/1.1" 200 -
+2024-11-18 16:40:33,739 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:33] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-18 16:40:33,747 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:33] "GET / HTTP/1.1" 200 -
+2024-11-18 16:40:35,367 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:35] "GET /login HTTP/1.1" 200 -
+2024-11-18 16:40:36,335 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:36] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-18 16:40:36,343 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:36] "GET / HTTP/1.1" 200 -
+2024-11-18 16:40:37,382 - INFO - creating snap7 client
+2024-11-18 16:40:37,382 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:40:37,422 - INFO - destroying snap7 client
+2024-11-18 16:40:37,423 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:37] "GET /create_cocktail HTTP/1.1" 200 -
+2024-11-18 16:40:41,737 - INFO - creating snap7 client
+2024-11-18 16:40:41,737 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:40:41,782 - INFO - Cocktail fsdf mit ID 14 wurde erstellt. Bildpfad: None
+2024-11-18 16:40:41,792 - INFO - destroying snap7 client
+2024-11-18 16:40:41,792 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:41] "[32mPOST /create_cocktail HTTP/1.1[0m" 302 -
+2024-11-18 16:40:41,800 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:41] "GET / HTTP/1.1" 200 -
+2024-11-18 16:40:43,024 - INFO - creating snap7 client
+2024-11-18 16:40:43,024 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:40:43,073 - INFO - destroying snap7 client
+2024-11-18 16:40:43,073 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:43] "GET /edit_cocktail/14 HTTP/1.1" 200 -
+2024-11-18 16:40:45,497 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:45] "GET / HTTP/1.1" 200 -
+2024-11-18 16:40:46,626 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:46] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-18 16:40:46,632 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:46] "GET / HTTP/1.1" 200 -
+2024-11-18 16:40:47,424 - INFO - creating snap7 client
+2024-11-18 16:40:47,425 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:40:47,459 - INFO - destroying snap7 client
+2024-11-18 16:40:47,460 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:47] "GET /edit_cocktail/14 HTTP/1.1" 200 -
+2024-11-18 16:40:54,881 - INFO - 127.0.0.1 - - [18/Nov/2024 16:40:54] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:00,634 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:00] "GET /login HTTP/1.1" 200 -
+2024-11-18 16:41:01,629 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:01] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-18 16:41:01,635 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:01] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:02,799 - INFO - creating snap7 client
+2024-11-18 16:41:02,799 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:41:02,833 - INFO - destroying snap7 client
+2024-11-18 16:41:02,833 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:02] "GET /edit_cocktail/14 HTTP/1.1" 200 -
+2024-11-18 16:41:04,907 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:04] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:07,397 - INFO - creating snap7 client
+2024-11-18 16:41:07,398 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:41:07,405 - INFO - Zähler für Cocktail 14 inkrementiert. Alter Wert: 0
+2024-11-18 16:41:07,496 - INFO - disconnecting snap7 client
+2024-11-18 16:41:07,496 - INFO - destroying snap7 client
+2024-11-18 16:41:07,496 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:07] "POST /order_cocktail/14 HTTP/1.1" 200 -
+2024-11-18 16:41:09,863 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:09] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:12,229 - INFO - creating snap7 client
+2024-11-18 16:41:12,230 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:41:12,268 - INFO - destroying snap7 client
+2024-11-18 16:41:12,269 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:12] "GET /edit_cocktail/14 HTTP/1.1" 200 -
+2024-11-18 16:41:14,192 - INFO - creating snap7 client
+2024-11-18 16:41:14,192 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:41:14,203 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:14] "POST /reset_counter/14 HTTP/1.1" 200 -
+2024-11-18 16:41:14,232 - INFO - destroying snap7 client
+2024-11-18 16:41:14,233 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:14] "[32mPOST /edit_cocktail/14 HTTP/1.1[0m" 302 -
+2024-11-18 16:41:14,240 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:14] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:15,536 - INFO - creating snap7 client
+2024-11-18 16:41:15,536 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:41:15,579 - INFO - destroying snap7 client
+2024-11-18 16:41:15,579 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:15] "GET /edit_cocktail/14 HTTP/1.1" 200 -
+2024-11-18 16:41:17,463 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:17] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:19,741 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:19] "POST /delete_cocktail/14 HTTP/1.1" 200 -
+2024-11-18 16:41:20,785 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:20] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:25,515 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:25] "GET /order_logs HTTP/1.1" 200 -
+2024-11-18 16:41:38,077 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:38] "GET / HTTP/1.1" 200 -
+2024-11-18 16:41:38,412 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-18 16:41:41,314 - INFO - creating snap7 client
+2024-11-18 16:41:41,314 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:41:41,321 - INFO - Zähler für Cocktail 12 inkrementiert. Alter Wert: 7
+2024-11-18 16:41:41,446 - INFO - disconnecting snap7 client
+2024-11-18 16:41:41,447 - INFO - destroying snap7 client
+2024-11-18 16:41:41,447 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:41] "POST /order_cocktail/12 HTTP/1.1" 200 -
+2024-11-18 16:41:46,033 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:46] "GET /order_logs HTTP/1.1" 200 -
+2024-11-18 16:41:54,495 - INFO - creating snap7 client
+2024-11-18 16:41:54,495 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:41:54,503 - INFO - Zähler für Cocktail 12 inkrementiert. Alter Wert: 8
+2024-11-18 16:41:54,618 - INFO - disconnecting snap7 client
+2024-11-18 16:41:54,618 - INFO - destroying snap7 client
+2024-11-18 16:41:54,618 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:54] "POST /order_cocktail/12 HTTP/1.1" 200 -
+2024-11-18 16:41:57,853 - INFO - 127.0.0.1 - - [18/Nov/2024 16:41:57] "GET /order_logs HTTP/1.1" 200 -
+2024-11-18 16:46:50,869 - INFO - 127.0.0.1 - - [18/Nov/2024 16:46:50] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-18 16:46:50,877 - INFO - 127.0.0.1 - - [18/Nov/2024 16:46:50] "GET / HTTP/1.1" 200 -
+2024-11-18 16:49:30,857 - INFO - creating snap7 client
+2024-11-18 16:49:30,857 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:49:30,893 - INFO - destroying snap7 client
+2024-11-18 16:49:30,893 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:30] "GET /edit_cocktail/12 HTTP/1.1" 200 -
+2024-11-18 16:49:53,001 - INFO - creating snap7 client
+2024-11-18 16:49:53,001 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:49:53,045 - INFO - destroying snap7 client
+2024-11-18 16:49:53,046 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:53] "[32mPOST /edit_cocktail/12 HTTP/1.1[0m" 302 -
+2024-11-18 16:49:53,052 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:53] "GET / HTTP/1.1" 200 -
+2024-11-18 16:49:53,117 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:53] "GET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1" 200 -
+2024-11-18 16:49:55,111 - INFO - creating snap7 client
+2024-11-18 16:49:55,111 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:49:55,152 - INFO - destroying snap7 client
+2024-11-18 16:49:55,152 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:55] "GET /edit_cocktail/12 HTTP/1.1" 200 -
+2024-11-18 16:49:55,203 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:55] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:49:59,245 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:59] "GET / HTTP/1.1" 200 -
+2024-11-18 16:49:59,293 - INFO - 127.0.0.1 - - [18/Nov/2024 16:49:59] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:50:52,254 - INFO - creating snap7 client
+2024-11-18 16:50:52,254 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:50:52,266 - INFO - Zähler für Cocktail 12 inkrementiert. Alter Wert: 9
+2024-11-18 16:50:52,507 - INFO - disconnecting snap7 client
+2024-11-18 16:50:52,507 - INFO - destroying snap7 client
+2024-11-18 16:50:52,508 - INFO - 127.0.0.1 - - [18/Nov/2024 16:50:52] "POST /order_cocktail/12 HTTP/1.1" 200 -
+2024-11-18 16:50:56,105 - INFO - 127.0.0.1 - - [18/Nov/2024 16:50:56] "GET / HTTP/1.1" 200 -
+2024-11-18 16:50:56,156 - INFO - 127.0.0.1 - - [18/Nov/2024 16:50:56] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:51:21,803 - INFO - 127.0.0.1 - - [18/Nov/2024 16:51:21] "GET /login HTTP/1.1" 200 -
+2024-11-18 16:51:23,034 - INFO - 127.0.0.1 - - [18/Nov/2024 16:51:23] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-18 16:51:23,042 - INFO - 127.0.0.1 - - [18/Nov/2024 16:51:23] "GET / HTTP/1.1" 200 -
+2024-11-18 16:51:23,090 - INFO - 127.0.0.1 - - [18/Nov/2024 16:51:23] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:51:33,706 - INFO - creating snap7 client
+2024-11-18 16:51:33,706 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:51:33,725 - INFO - disconnecting snap7 client
+2024-11-18 16:51:33,725 - INFO - destroying snap7 client
+2024-11-18 16:51:33,725 - INFO - 127.0.0.1 - - [18/Nov/2024 16:51:33] "POST /glas_entnommen HTTP/1.1" 200 -
+2024-11-18 16:51:41,038 - INFO - creating snap7 client
+2024-11-18 16:51:41,038 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:51:41,083 - INFO - destroying snap7 client
+2024-11-18 16:51:41,083 - INFO - 127.0.0.1 - - [18/Nov/2024 16:51:41] "GET /create_cocktail HTTP/1.1" 200 -
+2024-11-18 16:52:01,561 - INFO - creating snap7 client
+2024-11-18 16:52:01,561 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:52:01,595 - INFO - Bild gespeichert unter: uploads/WIN_20241010_21_33_13_Pro.jpg
+2024-11-18 16:52:01,596 - INFO - Cocktail Felschinator mit ID 15 wurde erstellt. Bildpfad: uploads/WIN_20241010_21_33_13_Pro.jpg
+2024-11-18 16:52:01,602 - INFO - destroying snap7 client
+2024-11-18 16:52:01,602 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:01] "[32mPOST /create_cocktail HTTP/1.1[0m" 302 -
+2024-11-18 16:52:01,609 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:01] "GET / HTTP/1.1" 200 -
+2024-11-18 16:52:01,657 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:01] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:52:01,659 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:01] "GET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1" 200 -
+2024-11-18 16:52:10,153 - INFO - creating snap7 client
+2024-11-18 16:52:10,153 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:52:10,160 - INFO - Zähler für Cocktail 15 inkrementiert. Alter Wert: 0
+2024-11-18 16:52:10,244 - INFO - disconnecting snap7 client
+2024-11-18 16:52:10,245 - INFO - destroying snap7 client
+2024-11-18 16:52:10,245 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:10] "POST /order_cocktail/15 HTTP/1.1" 200 -
+2024-11-18 16:52:23,213 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:23] "GET / HTTP/1.1" 200 -
+2024-11-18 16:52:23,280 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:23] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:52:23,297 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:23] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:52:32,471 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:32] "GET /order_logs HTTP/1.1" 200 -
+2024-11-18 16:52:39,957 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:39] "GET /settings HTTP/1.1" 200 -
+2024-11-18 16:52:47,527 - INFO - creating snap7 client
+2024-11-18 16:52:47,527 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:52:47,568 - INFO - disconnecting snap7 client
+2024-11-18 16:52:47,574 - INFO - destroying snap7 client
+2024-11-18 16:52:47,574 - INFO - 127.0.0.1 - - [18/Nov/2024 16:52:47] "GET /flaschen_alle HTTP/1.1" 200 -
+2024-11-18 16:53:50,661 - INFO - creating snap7 client
+2024-11-18 16:53:50,661 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:53:50,760 - INFO - disconnecting snap7 client
+2024-11-18 16:53:50,760 - INFO - destroying snap7 client
+2024-11-18 16:53:50,761 - INFO - 127.0.0.1 - - [18/Nov/2024 16:53:50] "[32mPOST /flaschen_alle HTTP/1.1[0m" 302 -
+2024-11-18 16:53:50,767 - INFO - creating snap7 client
+2024-11-18 16:53:50,767 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:53:50,814 - INFO - disconnecting snap7 client
+2024-11-18 16:53:50,815 - INFO - destroying snap7 client
+2024-11-18 16:53:50,816 - INFO - 127.0.0.1 - - [18/Nov/2024 16:53:50] "GET /flaschen_alle HTTP/1.1" 200 -
+2024-11-18 16:53:56,948 - INFO - 127.0.0.1 - - [18/Nov/2024 16:53:56] "GET / HTTP/1.1" 200 -
+2024-11-18 16:53:59,442 - INFO - creating snap7 client
+2024-11-18 16:53:59,442 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:53:59,476 - INFO - destroying snap7 client
+2024-11-18 16:53:59,477 - INFO - 127.0.0.1 - - [18/Nov/2024 16:53:59] "GET /edit_cocktail/12 HTTP/1.1" 200 -
+2024-11-18 16:53:59,524 - INFO - 127.0.0.1 - - [18/Nov/2024 16:53:59] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:54:09,007 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:09] "GET / HTTP/1.1" 200 -
+2024-11-18 16:54:09,054 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:09] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:54:09,058 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:09] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:54:14,137 - INFO - creating snap7 client
+2024-11-18 16:54:14,137 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:54:14,172 - INFO - destroying snap7 client
+2024-11-18 16:54:14,173 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:14] "GET /edit_cocktail/15 HTTP/1.1" 200 -
+2024-11-18 16:54:14,220 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:14] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:54:22,779 - INFO - creating snap7 client
+2024-11-18 16:54:22,779 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:54:22,824 - INFO - destroying snap7 client
+2024-11-18 16:54:22,824 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:22] "[32mPOST /edit_cocktail/15 HTTP/1.1[0m" 302 -
+2024-11-18 16:54:22,830 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:22] "GET / HTTP/1.1" 200 -
+2024-11-18 16:54:22,877 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:22] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:54:22,886 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:22] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:54:24,472 - INFO - creating snap7 client
+2024-11-18 16:54:24,473 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:54:24,508 - INFO - destroying snap7 client
+2024-11-18 16:54:24,508 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:24] "GET /edit_cocktail/15 HTTP/1.1" 200 -
+2024-11-18 16:54:24,546 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:24] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:54:31,984 - INFO - creating snap7 client
+2024-11-18 16:54:31,984 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:54:31,992 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:31] "POST /reset_counter/15 HTTP/1.1" 200 -
+2024-11-18 16:54:32,027 - INFO - destroying snap7 client
+2024-11-18 16:54:32,028 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:32] "[32mPOST /edit_cocktail/15 HTTP/1.1[0m" 302 -
+2024-11-18 16:54:32,037 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:32] "GET / HTTP/1.1" 200 -
+2024-11-18 16:54:33,500 - INFO - creating snap7 client
+2024-11-18 16:54:33,500 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:54:33,533 - INFO - destroying snap7 client
+2024-11-18 16:54:33,533 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:33] "GET /edit_cocktail/15 HTTP/1.1" 200 -
+2024-11-18 16:54:33,585 - INFO - 127.0.0.1 - - [18/Nov/2024 16:54:33] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:55:36,987 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:36] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-18 16:55:36,994 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:36] "GET / HTTP/1.1" 200 -
+2024-11-18 16:55:37,056 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:37] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:55:37,059 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:37] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:55:44,182 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:44] "GET /login HTTP/1.1" 200 -
+2024-11-18 16:55:45,406 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-18 16:55:45,412 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:45] "GET / HTTP/1.1" 200 -
+2024-11-18 16:55:45,462 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:45] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:55:45,465 - INFO - 127.0.0.1 - - [18/Nov/2024 16:55:45] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:57:18,099 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:18] "GET / HTTP/1.1" 200 -
+2024-11-18 16:57:18,147 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:18] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:57:18,151 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:18] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:57:19,148 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-18 16:57:19,156 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:19] "GET / HTTP/1.1" 200 -
+2024-11-18 16:57:19,212 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:19] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:57:19,215 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:19] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:57:23,785 - INFO - creating snap7 client
+2024-11-18 16:57:23,785 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:57:23,819 - INFO - destroying snap7 client
+2024-11-18 16:57:23,820 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:23] "GET /create_cocktail HTTP/1.1" 200 -
+2024-11-18 16:57:31,422 - INFO - creating snap7 client
+2024-11-18 16:57:31,422 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:57:31,456 - INFO - destroying snap7 client
+2024-11-18 16:57:31,456 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:31] "GET /edit_cocktail/12 HTTP/1.1" 200 -
+2024-11-18 16:57:31,515 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:31] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:57:39,572 - INFO - creating snap7 client
+2024-11-18 16:57:39,572 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 16:57:39,606 - INFO - destroying snap7 client
+2024-11-18 16:57:39,606 - INFO - 127.0.0.1 - - [18/Nov/2024 16:57:39] "GET /create_cocktail HTTP/1.1" 200 -
+2024-11-18 16:58:24,234 - INFO - 127.0.0.1 - - [18/Nov/2024 16:58:24] "GET /login HTTP/1.1" 200 -
+2024-11-18 16:58:28,609 - INFO - 127.0.0.1 - - [18/Nov/2024 16:58:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-18 16:58:28,615 - INFO - 127.0.0.1 - - [18/Nov/2024 16:58:28] "GET / HTTP/1.1" 200 -
+2024-11-18 16:58:28,675 - INFO - 127.0.0.1 - - [18/Nov/2024 16:58:28] "[36mGET /static/uploads/WIN_20241010_21_33_13_Pro.jpg HTTP/1.1[0m" 304 -
+2024-11-18 16:58:28,676 - INFO - 127.0.0.1 - - [18/Nov/2024 16:58:28] "[36mGET /static/uploads/WIN_20241010_21_26_07_Pro.jpg HTTP/1.1[0m" 304 -
