@@ -42,11 +42,17 @@ class UDTFlasche:
     def from_bytes(cls, data):
         """Entpackt die Flaschendaten aus einem Byte-Array."""
         try:
+            if len(data) < 38:
+                raise ValueError(f"Ungültige Datenlänge: Erwartet 38 Bytes, erhalten {len(data)} Bytes")
+            
             print(f"Empfangene Rohdaten (Hex): {data.hex()}")
             
             # Name
             max_length, actual_length, name_raw = struct.unpack('>BB20s', data[:22])
-            name = name_raw[:actual_length].decode('ascii').strip()
+            if max_length != 20:
+                raise ValueError(f"Ungültige maximale Länge für den Namen: {max_length}, erwartet 20")
+            
+            name = name_raw[:actual_length].decode('ascii', errors='ignore').strip()
             print(f"Name: {name} (Max: {max_length}, Aktuell: {actual_length})")
 
             # Restliche Daten
@@ -54,7 +60,8 @@ class UDTFlasche:
             print(f"X: {x}, Y: {y}")
 
             dosier_art_byte, = struct.unpack('>B', data[30:31])
-            print(f"DosierArt: {bool(dosier_art_byte)}")
+            dosier_art = bool(dosier_art_byte)
+            print(f"DosierArt: {'Hub' if dosier_art else 'Zeit'}")
 
             dosiermenge, = struct.unpack('>H', data[32:34])
             print(f"Dosiermenge: {dosiermenge}")
@@ -62,25 +69,37 @@ class UDTFlasche:
             alkoholgehalt, = struct.unpack('>f', data[34:38])
             print(f"Alkoholgehalt: {alkoholgehalt}")
 
+            # Rückgabe eines neuen Objekts der Klasse
             return cls(
                 name=name,
                 x=x,
                 y=y,
-                dosier_art=bool(dosier_art_byte),
+                dosier_art=dosier_art,
                 dosiermenge=dosiermenge,
                 alkoholgehalt=alkoholgehalt
             )
+        except UnicodeDecodeError as e:
+            print(f"Fehler beim Dekodieren des Namens: {e}")
+            raise ValueError("Ungültige Zeichen im Namen gefunden") from e
+        except struct.error as e:
+            print(f"Fehler beim Parsen der Struktur: {e}")
+            raise ValueError("Die Daten konnten nicht korrekt entpackt werden") from e
         except Exception as e:
-            print(f"Fehler beim Parsen der Bytes: {e}")
+            print(f"Unbekannter Fehler beim Parsen der Bytes: {e}")
             raise
 
-    def __str__(self):
-        """Gibt die Flaschendaten als lesbaren String zurück."""
+def __str__(self):
+    """Gibt die Flaschendaten als lesbaren String zurück."""
+    try:
+        dosier_art_str = 'Hub' if self.dosier_art else 'Zeit'
         return (
-            f"Name: {self.name}, X: {self.x}, Y: {self.y}, "
-            f"DosierArt: {'Hub' if self.dosier_art else 'Zeit'}, "
-            f"Dosiermenge: {self.dosiermenge} ml, Alkoholgehalt: {self.alkoholgehalt}%"
+            f"Name: {self.name}, X: {self.x:.2f}, Y: {self.y:.2f}, "
+            f"DosierArt: {dosier_art_str}, Dosiermenge: {self.dosiermenge} ml, "
+            f"Alkoholgehalt: {self.alkoholgehalt:.2f}%"
         )
+    except AttributeError as e:
+        return f"Fehler bei der Darstellung der Flaschendaten: {e}"
+
     
 class SPSKommunikation:
     # Verbindung zur SPS
@@ -144,6 +163,36 @@ class SPSKommunikation:
 
         self.write_db(db_number, start_address, data_to_write)
         print(f"Flasche {index} erfolgreich in SPS geschrieben.")
+
+    def set_bit(self, db_number, byte_index, bit_index, value):
+        """
+        Setzt ein spezifisches Bit in einer Datenbank.
+        :param db_number: Nummer der DB
+        :param byte_index: Offset des Bytes
+        :param bit_index: Index des Bits im Byte (0-7)
+        :param value: True für 1, False für 0
+        """
+        try:
+            # Lese das aktuelle Byte
+            current_byte = self.client.db_read(db_number, byte_index, 1)[0]
+            print(f"Aktuelles Byte: {current_byte:08b}")
+
+            # Bitmaske erstellen
+            mask = 1 << bit_index
+
+            # Setze oder lösche das Bit
+            if value:
+                new_byte = current_byte | mask  # Bit setzen
+            else:
+                new_byte = current_byte & ~mask  # Bit löschen
+
+            print(f"Neues Byte: {new_byte:08b}")
+
+            # Schreibe das Byte zurück
+            self.client.db_write(db_number, byte_index, bytes([new_byte]))
+        except Exception as e:
+            print(f"Fehler beim Setzen des Bits: {e}")
+            raise
 
 def read_udt_array(sps, db_number, array_start, udt_size, array_length):
     total_size = udt_size * array_length

@@ -4,6 +4,8 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash, generate_password_hash
 from sps_kommunikation import read_udt_array, UDTFlasche, SPSKommunikation
 
+
+
 import sqlite3
 import struct
 import logging
@@ -113,16 +115,72 @@ def save_settings(table, settings):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username', '').strip()
 
-        if authenticate_user(username, password):
-            session['user'] = username
-            flash('Erfolgreich eingeloggt!', 'success')
-            return redirect(url_for('index'))
-        else:
-            flash('Ungültiger Benutzername oder Passwort.', 'danger')
+        with get_db_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                '''
+                SELECT username FROM users WHERE username = ?
+                ''',
+                (username,)
+            )
+            user = cursor.fetchone()
+
+            if user:
+                session['user'] = username
+                flash(f'Willkommen zurück, {username}!', 'success')
+                return redirect(url_for('index'))
+            else:
+                flash('Benutzername nicht gefunden. Bitte registrieren Sie sich.', 'danger')
+                return redirect(url_for('register'))
+
     return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username', '').strip()
+        user_agent = request.headers.get('User-Agent')
+        ip_address = request.remote_addr
+
+        if not username:
+            flash('Bitte geben Sie einen gültigen Benutzernamen ein.', 'danger')
+            return redirect(url_for('register'))
+
+        with get_db_connection() as conn:
+            cursor = conn.cursor()
+
+            # Überprüfen, ob ein Benutzer mit denselben Daten bereits existiert
+            cursor.execute(
+                '''
+                SELECT id FROM users WHERE user_agent = ? OR ip_address = ?
+                ''',
+                (user_agent, ip_address)
+            )
+            existing_user = cursor.fetchone()
+
+            if existing_user:
+                flash('Ein Benutzer mit diesem Gerät existiert bereits. Bitte melden Sie sich an.', 'warning')
+                return redirect(url_for('login'))
+
+            # Neuen Benutzer erstellen
+            cursor.execute(
+                '''
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES (?, ?, ?)
+                ''',
+                (username, user_agent, ip_address)
+            )
+            conn.commit()
+
+            # Benutzer in die Session setzen
+            session['user'] = username
+            flash(f'Willkommen, {username}! Sie wurden erfolgreich registriert.', 'success')
+            return redirect(url_for('index'))
+
+    return render_template('register.html')
+
 
 @app.route('/logout')
 def logout():
@@ -136,12 +194,16 @@ def order_logs():
     with get_db_connection() as conn:
         cursor = conn.cursor()
 
-        # Bestellungen aus der `orders`-Tabelle abrufen
-        cursor.execute('SELECT * FROM orders ORDER BY order_time DESC')
-        orders = [dict(row) for row in cursor.fetchall()]
+        # Bestellungen abrufen, einschließlich Benutzername
+        cursor.execute('''
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        ''')
+        orders = cursor.fetchall()
 
     return render_template('order_logs.html', orders=orders)
-
 
 
 #Flaschen Laden / Cocktailerstellen
@@ -221,39 +283,59 @@ def create_cocktail():
 #Einstellungen
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
-    if request.method == 'POST':
-        # Neue SPS-IP aus dem Formular abrufen
-        sps_ip = request.form.get('sps_ip')
+    if session.get('user') not in ['Hölker', 'Schülting']:
+        flash("Zugriff verweigert. Nur Hölker oder Schülting dürfen die Einstellungen ändern.", "danger")
+        return redirect(url_for('index'))
 
-        if sps_ip:
+    with sqlite3.connect('cocktails.db') as conn:
+        cursor = conn.cursor()
+
+        if request.method == 'POST':
+            # Neue SPS-IP aus dem Formular abrufen
+            sps_ip = request.form.get('sps_ip')
+            global_cocktail_access = '1' if 'global_cocktail_access' in request.form else '0'
+
+            # SPS-IP speichern
+            if sps_ip:
+                try:
+                    cursor.execute('''
+                        UPDATE settings SET value = ? WHERE name = 'sps_ip'
+                    ''', (sps_ip,))
+                except sqlite3.Error as e:
+                    flash(f"Fehler beim Speichern der SPS-IP: {e}", "danger")
+                else:
+                    flash("SPS-IP erfolgreich gespeichert.", "success")
+
+            # Globale Cocktail-Erstellung speichern
             try:
-                # Verbindung zur Datenbank herstellen
-                conn = sqlite3.connect('cocktails.db')
-                cursor = conn.cursor()
-
-                # SPS-IP in der Datenbank aktualisieren
                 cursor.execute('''
-                    UPDATE settings SET value = ? WHERE name = 'sps_ip'
-                ''', (sps_ip,))
-                conn.commit()
-                conn.close()
-
-                flash("SPS-IP erfolgreich gespeichert.", "success")
+                    INSERT INTO settings (name, value) VALUES ('global_cocktail_access', ?)
+                    ON CONFLICT(name) DO UPDATE SET value = excluded.value
+                ''', (global_cocktail_access,))
             except sqlite3.Error as e:
-                flash(f"Fehler beim Speichern der SPS-IP: {e}", "danger")
-        else:
-            flash("Bitte eine gültige SPS-IP eingeben.", "warning")
+                flash(f"Fehler beim Speichern der globalen Zugriffseinstellung: {e}", "danger")
+            else:
+                flash("Zugriffseinstellung erfolgreich gespeichert.", "success")
 
-    # Aktuelle SPS-IP aus der Datenbank laden
-    conn = sqlite3.connect('cocktails.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT value FROM settings WHERE name = "sps_ip"')
-    sps_ip = cursor.fetchone()
-    conn.close()
+        # Aktuelle Einstellungen laden
+        cursor.execute('SELECT value FROM settings WHERE name = "sps_ip"')
+        sps_ip = cursor.fetchone()
+        sps_ip = sps_ip[0] if sps_ip else "192.168.0.1"  # Fallback auf Standardwert
 
-    sps_ip = sps_ip[0] if sps_ip else "192.168.0.1"  # Fallback auf Standardwert
+        cursor.execute('SELECT value FROM settings WHERE name = "global_cocktail_access"')
+        global_access = cursor.fetchone()
+        global_access = global_access[0] == '1' if global_access else False
 
-    return render_template('settings.html', sps_ip=sps_ip)
+    return render_template('settings.html', sps_ip=sps_ip, global_access=global_access)
+
+@app.context_processor
+def inject_global_settings():
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT value FROM settings WHERE name = ?', ('global_cocktail_access',))
+        global_access = cursor.fetchone()
+        global_access = global_access['value'] == '1' if global_access else False
+    return dict(global_access=global_access)
 
 @app.route('/basic_settings', methods=['GET', 'POST'])
 def basic_settings():
@@ -271,6 +353,120 @@ def basic_settings():
     basic_settings = get_settings('basic_settings')
     print("Geladene Grundeinstellungen:", basic_settings)  # Debugging-Ausgabe
     return render_template('basic_settings.html', basic_settings=basic_settings)
+
+#Order Queue
+@app.route('/order_queue', methods=['GET'])
+def order_queue():
+    try:
+        sps = SPSKommunikation(get_sps_ip())
+        orders = []
+
+        for i in range(50):  # Es gibt 50 Cocktails in der SPS
+            start_address = i * 62  # Jeder Cocktail ist 62 Bytes entfernt
+            raw_data = sps.read_db(130, start_address, 22)  # Nur den Namen lesen (22 Bytes)
+            max_length, actual_length, name_raw = struct.unpack('>BB20s', raw_data)
+            cocktail_name = name_raw[:actual_length].decode('ascii').strip()
+
+            if cocktail_name:  # Nur nicht-leere Namen in die Liste aufnehmen
+                orders.append({"name": cocktail_name, "sps_index": i + 1})
+
+        sps.disconnect()
+
+        return render_template('order_queue.html', orders=orders)
+    except Exception as e:
+        logging.error(f"Fehler beim Abrufen der Warteschleife: {e}")
+        flash("Fehler beim Abrufen der Warteschleife.", "danger")
+        return redirect(url_for('index'))
+
+
+#delete Order
+@app.route('/delete_order/<int:order_index>', methods=['POST'])
+def delete_order(order_index):
+    try:
+        sps = SPSKommunikation(get_sps_ip())
+
+        # Berechnung der Adressen
+        start_address_name = (order_index - 1) * 62
+        start_address_menge = start_address_name + 22
+
+        # Name und Mengen zurücksetzen
+        empty_name = struct.pack('>BB20s', 20, 0, b'')
+        zero_menge = struct.pack('>20H', *[0] * 20)
+
+        sps.write_db(130, start_address_name, empty_name)
+        sps.write_db(130, start_address_menge, zero_menge)
+
+        # Überprüfung
+        read_name = sps.read_db(130, start_address_name, 22)
+        _, actual_length, read_name_raw = struct.unpack('>BB20s', read_name)
+        read_name_decoded = read_name_raw[:actual_length].decode('ascii').strip()
+
+        read_menge = sps.read_db(130, start_address_menge, 40)
+        read_menge_values = struct.unpack('>20H', read_menge)
+
+        if read_name_decoded != '' or any(value != 0 for value in read_menge_values):
+            raise ValueError("Löschen nicht erfolgreich.")
+
+        logging.info(f"Bestellung an SPS-Index {order_index} erfolgreich gelöscht.")
+        sps.disconnect()
+
+        return jsonify({"success": True})
+    except Exception as e:
+        logging.error(f"Fehler beim Löschen der Bestellung: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+#set Referenzieren Bit
+@app.route('/set_sps_bit', methods=['POST'])
+def set_sps_bit():
+    try:
+        logging.info("Verbindung zur SPS wird hergestellt...")
+        sps = SPSKommunikation(get_sps_ip())
+        
+        # SPS-Bit setzen
+        db_number = 100
+        byte_index = 1  # Byte-Offset in der DB
+        bit_index = 0   # Bit im Byte
+        logging.info(f"Setze Bit {bit_index} in DB {db_number}, Byte {byte_index}...")
+        
+        # Bit setzen
+        sps.set_bit(db_number, byte_index, bit_index, True)
+        logging.info("Bit erfolgreich gesetzt.")
+        
+        sps.disconnect()
+        logging.info("Verbindung zur SPS getrennt.")
+        
+        return jsonify({"success": True})
+    except Exception as e:
+        logging.error(f"Fehler beim Setzen des Bits: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+#Toggle Reglerfreigabe
+@app.route('/toggle_reglerfreigabe', methods=['POST'])
+def toggle_reglerfreigabe():
+    try:
+        # Verbindung zur SPS herstellen
+        sps = SPSKommunikation(get_sps_ip())
+        
+        # Aktuellen Wert des Bits auslesen
+        db_number = 100
+        byte_index = 1
+        bit_index = 1
+        current_byte = sps.read_db(db_number, byte_index, 1)[0]
+        current_bit = (current_byte >> bit_index) & 1
+        
+        # Bit invertieren
+        new_bit = 0 if current_bit else 1
+        new_byte = (current_byte & ~(1 << bit_index)) | (new_bit << bit_index)
+        
+        # Neuen Byte-Wert in die SPS schreiben
+        sps.write_db(db_number, byte_index, bytes([new_byte]))
+        logging.info(f"Reglerfreigabe umgeschaltet. Neuer Wert: {new_bit}")
+        
+        sps.disconnect()
+        return jsonify({"success": True})
+    except Exception as e:
+        logging.error(f"Fehler beim Umschalten der Reglerfreigabe: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
 
 #Glas Entnommen
 @app.route("/glas_entnommen", methods=["POST"])
@@ -371,14 +567,14 @@ def update_flasche(index):
     flash(f"Flasche {index} erfolgreich gespeichert.", "success")
     return redirect(url_for('settings'))
 
-#Cocktailbestellen
+
+# Cocktail bestellen
 @app.route('/order_cocktail/<int:id>', methods=['POST'])
 def order_cocktail(id):
     try:
         # Verbindung zur SPS herstellen
         sps = SPSKommunikation(get_sps_ip())
         
-        # Cocktail-Daten aus der Datenbank abrufen
         with get_db_connection() as conn:
             cursor = conn.cursor()
             
@@ -396,22 +592,25 @@ def order_cocktail(id):
             cursor.execute('SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = ?', (id,))
             ingredients = cursor.fetchall()
 
-            # STRING-Daten mit Längenangabe für die SPS vorbereiten
-            max_length = 20  # Maximale Länge des Strings
-            actual_length = len(cocktail_name)
-            if actual_length > max_length:
-                cocktail_name = cocktail_name[:max_length]  # Kürzen auf maximale Länge
-            string_data = bytes([max_length, actual_length]) + cocktail_name.ljust(max_length).encode('ascii')
+            # Benutzername aus der Session abrufen
+            username = session.get('user')
+            if not username:
+                return jsonify({"success": False, "error": "Benutzer nicht eingeloggt"}), 403
+
+            # Benutzer-ID abrufen
+            cursor.execute('SELECT id FROM users WHERE username = ?', (username,))
+            user = cursor.fetchone()
+            user_id = user['id'] if user else None
 
             # Bestellung in die Tabelle `orders` eintragen
             ip_address = request.remote_addr
             user_agent = request.headers.get('User-Agent')
             cursor.execute(
                 '''
-                INSERT INTO orders (cocktail_id, ip_address, user_agent)
-                VALUES (?, ?, ?)
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (?, ?, ?, ?)
                 ''',
-                (id, ip_address, user_agent)
+                (id, ip_address, user_agent, user_id)
             )
 
             # Zähler für den Cocktail um 1 erhöhen
@@ -425,6 +624,13 @@ def order_cocktail(id):
 
         # Initialisiere das Array der Mengen
         menge_array = [0] * 20
+
+        # STRING-Daten mit Längenangabe für die SPS vorbereiten
+        max_length = 20  # Maximale Länge des Strings
+        actual_length = len(cocktail_name)
+        if actual_length > max_length:
+            cocktail_name = cocktail_name[:max_length]  # Kürzen auf maximale Länge
+        string_data = bytes([max_length, actual_length]) + cocktail_name.ljust(max_length).encode('ascii')
 
         # Zutaten und Mengen in die korrekten Indizes schreiben
         for ingredient in ingredients:
@@ -446,8 +652,10 @@ def order_cocktail(id):
         sps.disconnect()
         return jsonify({"success": True})
     except Exception as e:
-        print(f"Fehler bei der Bestellung: {e}")
+        logging.error(f"Fehler bei der Bestellung: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
+
+
 
 @app.route('/reset_counter/<int:id>', methods=['POST'])
 def reset_counter(id):
@@ -467,10 +675,26 @@ def reset_counter(id):
 # Route für die Hauptseite (Cocktailauswahl), sortiert nach dem höchsten Zählerwert
 @app.route('/')
 def index():
-    conn = get_db_connection()
-    # Cocktails absteigend nach `counter` sortieren, sodass der höchste Wert zuerst angezeigt wird
-    cocktails = conn.execute('SELECT * FROM cocktails ORDER BY counter DESC').fetchall()
-    conn.close()
+    user_agent = request.headers.get('User-Agent')
+    ip_address = request.remote_addr
+
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            '''
+            SELECT username FROM users WHERE user_agent = ? OR ip_address = ?
+            ''',
+            (user_agent, ip_address)
+        )
+        user = cursor.fetchone()
+
+        if user:
+            session['user'] = user['username']  # Benutzer erkannt, in die Session setzen
+        else:
+            return redirect(url_for('register'))  # Benutzer nicht erkannt, zur Registrierung leiten
+
+    # Weiter mit der Hauptseite
+    cocktails = cursor.execute('SELECT * FROM cocktails ORDER BY counter DESC').fetchall()
     return render_template('index.html', cocktails=cocktails)
 
 # Route zum Bearbeiten eines existierenden Cocktails

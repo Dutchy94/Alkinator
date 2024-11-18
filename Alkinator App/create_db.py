@@ -16,6 +16,8 @@ cursor.execute('''
     )
 ''')
 
+
+
 # Cocktail Inhalte mit UNIQUE-Einschränkung
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS cocktail_ingredients (
@@ -49,6 +51,10 @@ cursor.execute('''
 cursor.execute('''
     INSERT OR IGNORE INTO settings (name, value) VALUES (?, ?)
 ''', ('sps_slot', '1'))  # Beispiel für Slot-Nummer
+cursor.execute('''
+    INSERT OR IGNORE INTO settings (name, value) VALUES ('global_cocktail_access', '0');
+'''
+)
 
 # Tabelle für Grundeinstellungen erstellen, falls sie noch nicht existiert
 cursor.execute('''
@@ -71,19 +77,20 @@ cursor.execute('''
     )
 ''')
 
+cursor.execute('''
+    ALTER TABLE orders ADD COLUMN user_id INTEGER;
+''')
+
 # Tabelle für Benutzer erstellen
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL
+        user_agent TEXT,
+        ip_address TEXT
     )
 ''')
 
-# Standardbenutzer hinzufügen (falls sie nicht existieren)
-cursor.execute('INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)', ('Default', ''))
-cursor.execute('INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)', ('Hölker', 'hoelker123'))
-cursor.execute('INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)', ('Schülting', 'schuelting123'))
 
 # Überprüfen, ob das Feld `image_path` existiert; falls nicht, hinzufügen
 try:

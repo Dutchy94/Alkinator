@@ -16,8 +16,23 @@
                 <label for="sps_ip">Ziel-IP der SPS</label>
                 <input type="text" class="form-control" id="sps_ip" name="sps_ip" value="{{ sps_ip }}" placeholder="192.168.0.1" required>
             </div>
+
+            <!-- Schaltfläche für SPS-Bit setzen -->
+            <div class="mt-5 text-center">
+                <button class="btn btn-danger" onclick="setSpsBit()">Referieren</button>
+                <button class="btn btn-success" onclick="toggleReglerfreigabe()">Reglerfreigabe Umschalten</button>
+            </div>
+
+            <!-- Globale Cocktail-Erstellung -->
+            <div class="form-check mt-4">
+                <input type="checkbox" class="form-check-input" id="global_cocktail_access" name="global_cocktail_access" {% if global_access %}checked{% endif %}>
+                <label class="form-check-label" for="global_cocktail_access">
+                    Zugriff auf Cocktail-Erstellung und Bearbeitung für alle Benutzer erlauben
+                </label>
+            </div>
             <button type="submit" class="btn btn-primary mt-3">Speichern</button>
         </form>
+
         <hr>
 
         <!-- Buttons für Zusatzoptionen -->
@@ -30,4 +45,62 @@
         <a href="{{ url_for('index') }}" class="btn btn-secondary mt-5">Zurück zur Hauptseite</a>
     </div>
 </body>
+<script>
+    function setSpsBit() {
+        if (confirm("Möchtest du das Bit wirklich setzen?")) {
+            fetch('/set_sps_bit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP-Fehler: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert("Bit erfolgreich gesetzt!");
+                } else {
+                    alert("Fehler: " + (data.error || "Unbekannter Fehler."));
+                }
+            })
+            .catch(error => {
+                console.error("Fehler:", error);
+                alert("Ein unerwarteter Fehler ist aufgetreten: " + error.message);
+            });
+        }
+    }
+
+    function toggleReglerfreigabe() {
+        if (confirm("Möchtest du die Reglerfreigabe umschalten?")) {
+            fetch('/toggle_reglerfreigabe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP-Fehler: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert("Reglerfreigabe erfolgreich umgeschaltet!");
+                } else {
+                    alert("Fehler: " + (data.error || "Unbekannter Fehler."));
+                }
+            })
+            .catch(error => {
+                console.error("Fehler:", error);
+                alert("Ein unerwarteter Fehler ist aufgetreten: " + error.message);
+            });
+        }
+    }
+
+</script>
 </html>

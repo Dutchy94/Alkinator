@@ -1873,3 +1873,1159 @@
 [SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
 [SQL TRACE]: SELECT * FROM users WHERE username = 'Schülting'
 [SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 12
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 12
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM users WHERE username = 'Schülting'
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM orders ORDER BY order_time DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('testetestest', '', 'testest', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('estest', 'test', 'seteest', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('estsersd', 'sdfsdaf', 'fsdaf', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('ear', 'asdfasdf', 'dsfdasf', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('sdafasd', '', 'fsdfadsf', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('dsafasdf', '', 'asdfasdf', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('sadfsad', '', 'sadfasdf', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: 
+                SELECT id FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+                
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES ('Schülting', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', '127.0.0.1')
+                
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM orders ORDER BY order_time DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('test', 'test', 'test', NULL)
+                    
+[SQL TRACE]: 
+                            INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                            VALUES (1, 'Fanta', 50)
+                            ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                            
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: UPDATE cocktails SET counter = 0 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'test', description = 'test'
+                    WHERE id = 1
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'test', description = 'test'
+                    WHERE id = 1
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'test', description = 'test'
+                    WHERE id = 1
+                    
+[SQL TRACE]: 
+                    INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                    VALUES (1, 'Cola', 50)
+                    ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                    
+[SQL TRACE]: 
+                    INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                    VALUES (1, 'Fantas', 50)
+                    ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'test', description = 'test'
+                    WHERE id = 1
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('dasda', '', 'sd', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: 
+                SELECT id FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+                
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES ('test', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', '127.0.0.1')
+                
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: 
+                SELECT id FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+                
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES ('Schülting', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', '127.0.0.1')
+                
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: 
+                SELECT id FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+                
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES ('test', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', '127.0.0.1')
+                
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: 
+                SELECT id FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+                
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES ('Hölker', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', '127.0.0.1')
+                
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+                SELECT id FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+                
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES ('test', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', '127.0.0.1')
+                
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('testestset', '', 'set
+', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'testestset', description = ''
+                    WHERE id = 1
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+                SELECT id FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+                
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO users (username, user_agent, ip_address)
+                VALUES ('Schülting', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', '127.0.0.1')
+                
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('test50', '', 'fsdfsd', NULL)
+                    
+[SQL TRACE]: 
+                            INSERT INTO cocktail_ingredients (cocktail_id, flasche_name, menge_ml)
+                            VALUES (1, 'Cola', 20)
+                            ON CONFLICT(cocktail_id, flasche_name) DO UPDATE SET menge_ml = excluded.menge_ml
+                            
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT * FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE id = 1
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    UPDATE cocktails
+                    SET name = 'test50', description = '', image_path = 'uploads/SchaltungB.png'
+                    WHERE id = 1
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test1'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test2'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test19'
+[SQL TRACE]: SELECT image_path FROM cocktails WHERE name = 'test50'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                    INSERT INTO cocktails (name, description, ingredients, image_path)
+                    VALUES ('fsdf', '', 'sdfsd', NULL)
+                    
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT name, counter FROM cocktails WHERE id = 1
+[SQL TRACE]: SELECT flasche_name, menge_ml FROM cocktail_ingredients WHERE cocktail_id = 1
+[SQL TRACE]: SELECT id FROM users WHERE username = 'Schülting'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: 
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
+                VALUES (1, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36', 1)
+                
+[SQL TRACE]: UPDATE cocktails SET counter = counter + 1 WHERE id = 1
+[SQL TRACE]: COMMIT
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: BEGIN 
+[SQL TRACE]: DELETE FROM cocktails WHERE id = 2
+[SQL TRACE]: DELETE FROM cocktail_ingredients WHERE cocktail_id = 2
+[SQL TRACE]: COMMIT
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
+            FROM orders
+            LEFT JOIN users ON orders.user_id = users.id
+            ORDER BY orders.order_time DESC
+        
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
+[SQL TRACE]: 
+            SELECT username FROM users WHERE user_agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36' OR ip_address = '127.0.0.1'
+            
+[SQL TRACE]: SELECT * FROM cocktails ORDER BY counter DESC
+[SQL TRACE]: SELECT value FROM settings WHERE name = 'global_cocktail_access'
