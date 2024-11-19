@@ -10,9 +10,9 @@ Diese Anleitung beschreibt, wie du eine Flask-App (`app.py`) auf einem Raspberry
 ## Voraussetzungen
 
 - Raspberry Pi mit Raspberry Pi OS (oder einem ähnlichen Linux-Betriebssystem).
-- Python3 und Flask sind installiert.
-- Die Flask-App `app.py` befindet sich an einem festen Speicherort, z. B. `/home/pi/app/app.py`.
-
+- Python3, PIP und Flask sind installiert.
+- Die Flask-App `app.py` befindet sich an einem festen Speicherort, z. B. `/home/pi/app/Alkinator/Alkinator App/app.py`.
+- git muss installiert sein.
 ---
 
 ## Schritte
