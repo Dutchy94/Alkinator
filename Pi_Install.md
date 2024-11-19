@@ -11,8 +11,10 @@ Diese Anleitung beschreibt, wie du eine Flask-App (`app.py`) auf einem Raspberry
 
 - Raspberry Pi mit Raspberry Pi OS (oder einem ähnlichen Linux-Betriebssystem).
 - Python3, PIP und Flask sind installiert.
-- Die Flask-App `app.py` befindet sich an einem festen Speicherort, z. B. `/home/pi/app/Alkinator/Alkinator App/app.py`.
+- Die Flask-App `app.py` befindet sich an einem festen Speicherort, z. B. `/home/pi/app/Alkinator/Alkinator_App/app.py`.
 - git muss installiert sein.
+- pip install gunicorn um gunikorn zu installieren oder (sudo apt install python3-gunicorn)
+
 ---
 
 ## Schritte
@@ -40,6 +42,21 @@ Environment=FLASK_APP=app.py FLASK_ENV=production
 [Install]
 WantedBy=multi-user.target
 
+ODER
+
+[Unit]
+Description=Gunicorn Flask App
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/gunicorn -w 3 -b 0.0.0.0:8000 app:app
+WorkingDirectory=/home/pi/app/Alkinator/Alkinator_App
+Restart=always
+RestartSec=5
+User=pi
+
+[Install]
+WantedBy=multi-user.target
 
 Parameterbeschreibung:
 
