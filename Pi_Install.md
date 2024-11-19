@@ -15,6 +15,8 @@ Diese Anleitung beschreibt, wie du eine Flask-App (`app.py`) auf einem Raspberry
 - git muss installiert sein.
 - pip install gunicorn um gunikorn zu installieren oder (sudo apt install python3-gunicorn)
 
+sudo apt install gunicorn
+
 ---
 
 ## Schritte
