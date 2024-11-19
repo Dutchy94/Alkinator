@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/order_queue">Bestellungen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Zurück zur Startseite</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hauptcontainer -->
+    <div class="container mt-5">
+        <h1 class="text-center">Cocktail-Bestellungen Dashboard</h1>
+        
+        <!-- Statistiken -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary">
+                    <div class="card-header">Gesamte Cocktails</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ total_cocktails }}</h5>
+                        <p class="card-text">Insgesamt bestellte Cocktails.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-success">
+                    <div class="card-header">Benutzer</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ users|length }}</h5>
+                        <p class="card-text">Aktive Benutzer im System.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benutzerfilter -->
+        <div class="form-group mb-4">
+            <label for="user-filter">Benutzer auswählen:</label>
+            <select id="user-filter" class="form-control" onchange="updateGraph()">
+                <option value="all">Alle Benutzer</option>
+                {% for user in users %}
+                    <option value="{{ user['id'] }}">{{ user['username'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Graph -->
+        <canvas id="cocktailChart" width="800" height="400"></canvas>
+    </div>
+
+    <script>
+        // Bestelldaten aus Python einlesen
+        const graphOrders = JSON.parse('{{ orders | tojson | safe }}');
+
+        // Kontext des Canvas
+        const ctx = document.getElementById('cocktailChart').getContext('2d');
+
+        // Initialisiere den Chart
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Datum
+                datasets: [{
+                    label: 'Cocktails pro Tag',
+                    data: [],
+                    borderColor: 'blue',
+                    fill: false
+                },
+                {
+                    label: 'Alkoholgehalt (ml)',
+                    data: [],
+                    borderColor: 'red',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Cocktail-Bestellungen und Alkoholgehalt pro Tag'
+                    }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Datum' } },
+                    y: { title: { display: true, text: 'Anzahl / Alkoholgehalt' } }
+                }
+            }
+        });
+
+        // Funktion zur Aktualisierung des Graphen
+        function updateGraph() {
+            const userId = document.getElementById('user-filter').value;
+
+            // Filtere die Daten basierend auf der Benutzer-ID
+            const filteredOrders = userId === 'all'
+                ? graphOrders
+                : graphOrders.filter(order => order.user_id == userId);
+
+            // Gruppiere die Daten nach Datum
+            const groupedData = {};
+            filteredOrders.forEach(order => {
+                const date = new Date(order.order_time).toISOString().split('T')[0];
+                if (!groupedData[date]) {
+                    groupedData[date] = { count: 0, alcohol: 0 };
+                }
+                groupedData[date].count += order.cocktail_count;
+                groupedData[date].alcohol += order.total_alcohol;
+            });
+
+            // Aktualisiere den Chart
+            chart.data.labels = Object.keys(groupedData);
+            chart.data.datasets[0].data = Object.values(groupedData).map(data => data.count);
+            chart.data.datasets[1].data = Object.values(groupedData).map(data => data.alcohol);
+            chart.update();
+        }
+
+        // Initiales Update des Graphen
+        updateGraph();
+    </script>
+</body>
+</html>

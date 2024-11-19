@@ -38,6 +38,13 @@ cursor.execute('''
         value TEXT
     )
 ''')
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS flaschen (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT UNIQUE NOT NULL,
+    alkoholgehalt REAL NOT NULL
+);
+''')
 
 # Standard-IP-Adresse der SPS hinzufügen, falls noch nicht vorhanden
 cursor.execute('''
@@ -91,6 +98,17 @@ cursor.execute('''
     )
 ''')
 
+cursor.execute('''CREATE TABLE IF NOT EXISTS user_orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    cocktail_id INTEGER NOT NULL,
+    alcohol_content REAL NOT NULL,
+    order_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(cocktail_id) REFERENCES cocktails(id)
+    );''')
+
+cursor.execute('ALTER TABLE orders ADD COLUMN alcohol_content REAL DEFAULT 0.0;')
 
 # Überprüfen, ob das Feld `image_path` existiert; falls nicht, hinzufügen
 try:

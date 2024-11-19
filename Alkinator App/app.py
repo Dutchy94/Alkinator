@@ -20,9 +20,12 @@ app.jinja_env.globals.update(enumerate=enumerate)
 
 # Logging konfigurieren
 logging.basicConfig(
-    filename='app_log.txt',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("app_debug.log"),  # Speichert Logs in einer Datei
+        logging.StreamHandler()  # Zeigt Logs in der Konsole an
+    ]
 )
 
 #IP aus Datenbank auslesen
@@ -189,21 +192,34 @@ def logout():
     # Weiterleitung zur Hauptseite (index)
     return redirect(url_for('index'))
 
-@app.route('/order_logs')
+
+@app.route('/order_logs', methods=['GET'])
 def order_logs():
-    with get_db_connection() as conn:
-        cursor = conn.cursor()
+    try:
+        with get_db_connection() as conn:
+            cursor = conn.cursor()
+            # Bestellungen mit Cocktailnamen abrufen
+            cursor.execute('''
+                SELECT 
+                    orders.id, 
+                    orders.cocktail_id, 
+                    cocktails.name AS cocktail_name,
+                    users.username, 
+                    orders.order_time, 
+                    orders.ip_address, 
+                    orders.user_agent
+                FROM orders
+                LEFT JOIN cocktails ON orders.cocktail_id = cocktails.id
+                LEFT JOIN users ON orders.user_id = users.id
+                ORDER BY orders.order_time DESC
+            ''')
+            orders = cursor.fetchall()
+        return render_template('order_logs.html', orders=orders)
+    except Exception as e:
+        logging.error(f"Fehler beim Abrufen des Bestellungsprotokolls: {e}")
+        flash("Fehler beim Laden des Protokolls.", "danger")
+        return redirect(url_for('index'))
 
-        # Bestellungen abrufen, einschließlich Benutzername
-        cursor.execute('''
-            SELECT orders.id, orders.cocktail_id, orders.order_time, orders.ip_address, orders.user_agent, users.username
-            FROM orders
-            LEFT JOIN users ON orders.user_id = users.id
-            ORDER BY orders.order_time DESC
-        ''')
-        orders = cursor.fetchall()
-
-    return render_template('order_logs.html', orders=orders)
 
 
 #Flaschen Laden / Cocktailerstellen
@@ -491,10 +507,11 @@ def flaschen_alle():
     array_start = 0
     udt_size = 38
     array_length = 30
+    logging.debug(f"Test falsches Skript?")
 
     try:
         print("Initialisiere Verbindung zur SPS...")
-        sps = SPSKommunikation(get_sps_ip())  # Prüfen, ob IP korrekt geladen wird
+        sps = SPSKommunikation(get_sps_ip())
         print(f"Verbindung zur SPS erfolgreich: {sps.ip}")
     except Exception as e:
         print(f"Fehler beim Verbinden zur SPS: {e}")
@@ -504,23 +521,73 @@ def flaschen_alle():
     # POST: Speichern der Änderungen
     if request.method == 'POST':
         try:
+            # Verbindung zur SQLite-Datenbank herstellen
+            conn = sqlite3.connect('cocktails.db')
+            cursor = conn.cursor()
+
+            # Tabelle `flaschen` erstellen, falls sie nicht existiert
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS flaschen (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name TEXT UNIQUE NOT NULL,
+                    alkoholgehalt REAL NOT NULL
+                )
+            ''')
+
+            # Iteriere über die Flaschen und verarbeite sie
             for i in range(1, array_length + 1):
                 print(f"Verarbeite Änderungen für Flasche {i}...")
+
+                # Formulardaten auslesen
+                flasche_name = request.form[f'name_{i}'].strip()
+                if not flasche_name:  # Überspringe leere Flaschen
+                    logging.warning(f"Flasche {i} hat keinen Namen, überspringe...")
+                    continue
+
+                flasche_x = float(request.form[f'x_{i}'])
+                flasche_y = float(request.form[f'y_{i}'])
+                dosier_art = bool(request.form.get(f'dosier_art_{i}', 'off') == 'on')
+                dosiermenge = int(request.form[f'dosiermenge_{i}'])
+                alkoholgehalt = float(request.form[f'alkoholgehalt_{i}'])
+
+                # Logging der eingelesenen Formulardaten
+                logging.debug(f"Formular-Daten für Flasche {i}: Name={flasche_name}, X={flasche_x}, Y={flasche_y}, Dosierart={dosier_art}, Dosiermenge={dosiermenge}, Alkoholgehalt={alkoholgehalt}")
+
                 flasche = UDTFlasche(
-                    name=request.form[f'name_{i}'],
-                    x=float(request.form[f'x_{i}']),
-                    y=float(request.form[f'y_{i}']),
-                    dosier_art=bool(request.form.get(f'dosier_art_{i}', 'off') == 'on'),
-                    dosiermenge=int(request.form[f'dosiermenge_{i}']),
-                    alkoholgehalt=float(request.form[f'alkoholgehalt_{i}'])
+                    name=flasche_name,
+                    x=flasche_x,
+                    y=flasche_y,
+                    dosier_art=dosier_art,
+                    dosiermenge=dosiermenge,
+                    alkoholgehalt=alkoholgehalt
                 )
+
+                # In die SPS schreiben
                 sps.write_flasche(db_number=db_number, index=i, flasche=flasche, udt_size=udt_size)
+                logging.info(f"Flasche {i} erfolgreich in die SPS geschrieben.")
+
+                # Daten in die SQLite-Datenbank einfügen oder aktualisieren
+                try:
+                    cursor.execute(
+                        '''
+                        INSERT INTO flaschen (name, alkoholgehalt) 
+                        VALUES (?, ?)
+                        ON CONFLICT(name) DO UPDATE SET alkoholgehalt=excluded.alkoholgehalt
+                        ''',
+                        (flasche.name, flasche.alkoholgehalt)
+                    )
+                except sqlite3.IntegrityError as e:
+                    logging.error(f"Fehler beim Einfügen/Aktualisieren von Flasche '{flasche.name}': {e}")
+
+            # Änderungen in der SQLite-Datenbank speichern
+            conn.commit()
             flash("Änderungen erfolgreich gespeichert.", "success")
         except Exception as e:
-            print(f"Fehler beim Speichern: {e}")
+            logging.error(f"Fehler beim Speichern: {e}")
             flash(f"Fehler beim Speichern der Flaschen: {e}", "danger")
         finally:
             sps.disconnect()
+            conn.close()
             return redirect(url_for('flaschen_alle'))
 
     # GET: Flaschen laden
@@ -528,44 +595,50 @@ def flaschen_alle():
         print("Lese Flaschen aus der SPS...")
         flaschen = read_udt_array(sps, db_number, array_start, udt_size, array_length)
         print(f"Flaschen geladen: {len(flaschen)}")
+        
+        # Daten in die SQLite-Datenbank einfügen oder aktualisieren
+        with get_db_connection() as conn:
+            cursor = conn.cursor()
+
+            for flasche in flaschen:
+                flasche_name = flasche.name
+                alkoholgehalt = flasche.alkoholgehalt
+
+                if not flasche_name:  # Überspringe Flaschen ohne Namen
+                    logging.warning(f"Flasche hat keinen Namen, überspringe...")
+                    continue
+
+                # Prüfen, ob die Flasche bereits existiert
+                cursor.execute('SELECT COUNT(*) FROM flaschen WHERE name = ?', (flasche_name,))
+                exists = cursor.fetchone()[0]
+
+                if not exists:
+                    # Füge neue Flasche hinzu
+                    logging.info(f"Füge Flasche '{flasche_name}' mit Alkoholgehalt {alkoholgehalt}% hinzu.")
+                    cursor.execute(
+                        '''
+                        INSERT INTO flaschen (name, alkoholgehalt)
+                        VALUES (?, ?)
+                        ''',
+                        (flasche_name, alkoholgehalt)
+                    )
+                    conn.commit()
+                    logging.info(f"Flasche '{flasche_name}' zur Datenbank hinzugefügt.")
+                else:
+                    logging.info(f"Flasche '{flasche_name}' existiert bereits, überspringe.")
+            conn.commit()
+
     except Exception as e:
-        print(f"Fehler beim Laden der Flaschen: {e}")
-        flash(f"Fehler beim Laden der Flaschen: {e}", "danger")
+        logging.error(f"Fehler beim Laden und Einfügen der Flaschen in die Datenbank: {e}")
+        flash(f"Fehler beim Laden der Flaschen aus der SPS: {e}", "danger")
         flaschen = []
+
     finally:
         sps.disconnect()
 
     return render_template('flaschen_alle.html', flaschen=flaschen)
 
 
-#Flasche Updaten
-@app.route('/update_flasche/<int:index>', methods=['POST'])
-def update_flasche(index):
-    db_number = 120
-    array_start = 0
-    udt_size = 38
-
-    # Formular-Daten auslesen
-    flasche = UDTFlasche(
-        name=request.form['name'],
-        x=float(request.form['x']),
-        y=float(request.form['y']),
-        dosier_art=bool(int(request.form['dosier_art'])),
-        dosiermenge=int(request.form['dosiermenge']),
-        alkoholgehalt=float(request.form['alkoholgehalt'])
-    )
-
-    # Flasche in die SPS schreiben
-    try:
-        sps = SPSKommunikation("192.168.0.1")
-        sps.write_flasche(db_number=db_number, index=index, flasche=flasche, udt_size=udt_size)
-        sps.disconnect()
-    except Exception as e:
-        flash(f"Fehler beim Speichern der Flasche: {e}", "danger")
-        return redirect(url_for('flaschen', index=index))
-
-    flash(f"Flasche {index} erfolgreich gespeichert.", "success")
-    return redirect(url_for('settings'))
 
 
 # Cocktail bestellen
@@ -574,10 +647,10 @@ def order_cocktail(id):
     try:
         # Verbindung zur SPS herstellen
         sps = SPSKommunikation(get_sps_ip())
-        
+
         with get_db_connection() as conn:
             cursor = conn.cursor()
-            
+
             # Cocktail-Daten abrufen
             cursor.execute('SELECT name, counter FROM cocktails WHERE id = ?', (id,))
             cocktail_row = cursor.fetchone()
@@ -602,15 +675,38 @@ def order_cocktail(id):
             user = cursor.fetchone()
             user_id = user['id'] if user else None
 
+            if not user_id:
+                return jsonify({"success": False, "error": "Benutzer-ID nicht gefunden"}), 404
+
+            # Alkoholgehalt berechnen
+            alcohol_content = 0.0
+            for ingredient in ingredients:
+                flasche_name, menge = ingredient
+                cursor.execute('SELECT alkoholgehalt FROM flaschen WHERE name = ?', (flasche_name,))
+                alkoholgehalt_row = cursor.fetchone()
+                if alkoholgehalt_row:
+                    alkoholgehalt = alkoholgehalt_row[0]
+                    alcohol_content += (menge * alkoholgehalt / 100)  # Alkoholgehalt in ml berechnen
+                    logging.debug(f"Berechne Alkoholgehalt: Zutat {flasche_name}, Menge {menge} ml, Alkoholgehalt {alkoholgehalt}%")
+
             # Bestellung in die Tabelle `orders` eintragen
             ip_address = request.remote_addr
             user_agent = request.headers.get('User-Agent')
             cursor.execute(
                 '''
-                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO orders (cocktail_id, ip_address, user_agent, user_id, alcohol_content)
+                VALUES (?, ?, ?, ?, ?)
                 ''',
-                (id, ip_address, user_agent, user_id)
+                (id, ip_address, user_agent, user_id, round(alcohol_content, 2))
+            )
+
+            # Bestellung in `user_orders` eintragen
+            cursor.execute(
+                '''
+                INSERT INTO user_orders (user_id, cocktail_id, order_time, alcohol_content)
+                VALUES (?, ?, CURRENT_TIMESTAMP, ?)
+                ''',
+                (user_id, id, round(alcohol_content, 2))
             )
 
             # Zähler für den Cocktail um 1 erhöhen
@@ -636,10 +732,12 @@ def order_cocktail(id):
         for ingredient in ingredients:
             flasche_name = ingredient['flasche_name']
             menge = int(ingredient['menge_ml'])
-            
+
             # Index der Flasche herausfinden
-            flaschen_index = next((i for i, flasche in enumerate(read_udt_array(sps, 120, 0, 38, 30)) if flasche.name == flasche_name), None)
-            
+            flaschen_index = next(
+                (i for i, flasche in enumerate(read_udt_array(sps, 120, 0, 38, 30)) if flasche.name == flasche_name), None
+            )
+
             if flaschen_index is not None and flaschen_index < len(menge_array):
                 menge_array[flaschen_index] = menge
 
@@ -654,6 +752,63 @@ def order_cocktail(id):
     except Exception as e:
         logging.error(f"Fehler bei der Bestellung: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
+
+
+
+
+
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    try:
+        with get_db_connection() as conn:
+            cursor = conn.cursor()
+
+            # Benutzerliste abrufen
+            cursor.execute('SELECT id, username FROM users')
+            users = cursor.fetchall()
+            logging.info(f"Benutzerliste abgerufen: {users}")
+
+            # Daten für den Graphen abrufen
+            cursor.execute('''
+                SELECT user_id, order_time, COUNT(*) as cocktail_count, SUM(alcohol_content) as total_alcohol
+                FROM user_orders
+                GROUP BY user_id, DATE(order_time)
+                ORDER BY order_time
+            ''')
+            orders = cursor.fetchall()
+            logging.info(f"Bestelldaten abgerufen: {orders}")
+
+            if not users:
+                logging.warning("Keine Benutzer in der Datenbank gefunden.")
+            if not orders:
+                logging.warning("Keine Bestellungen in der Datenbank gefunden.")
+
+        # Konvertierung der SQLite Rows zu Dictionaries für das Template
+        users_list = [{'id': user[0], 'username': user[1]} for user in users]
+        orders_list = [
+            {
+                'user_id': order[0],
+                'order_time': order[1],
+                'cocktail_count': order[2],
+                'total_alcohol': order[3]
+            }
+            for order in orders
+        ]
+
+        # Berechnung der Gesamtzahl der bestellten Cocktails
+        total_cocktails = sum(order['cocktail_count'] for order in orders_list)
+
+        logging.debug(f"Benutzer für das Template: {users_list}")
+        logging.debug(f"Bestellungen für das Template: {orders_list}")
+
+        return render_template('dashboard.html', users=users_list, orders=orders_list, total_cocktails=total_cocktails)
+    
+    except Exception as e:
+        logging.error(f"Fehler beim Abrufen der Dashboard-Daten: {e}", exc_info=True)
+        flash("Fehler beim Laden des Dashboards.", "danger")
+        return redirect(url_for('index'))
+
+
 
 
 

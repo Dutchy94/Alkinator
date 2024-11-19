@@ -1,0 +1,330 @@
+2024-11-18 22:41:30,594 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-18 22:41:30,595 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-18 22:41:30,595 - INFO -  * Restarting with stat
+2024-11-18 22:41:30,735 - WARNING -  * Debugger is active!
+2024-11-18 22:41:30,736 - INFO -  * Debugger PIN: 137-512-191
+2024-11-18 22:41:34,335 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:34] "GET / HTTP/1.1" 200 -
+2024-11-18 22:41:34,547 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:34] "[36mGET /static/uploads/SchaltungB.png HTTP/1.1[0m" 304 -
+2024-11-18 22:41:34,801 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-18 22:41:36,267 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:36] "GET /settings HTTP/1.1" 200 -
+2024-11-18 22:41:40,232 - INFO - creating snap7 client
+2024-11-18 22:41:40,232 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 22:41:40,239 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:40] "POST /settings HTTP/1.1" 200 -
+2024-11-18 22:41:40,250 - INFO - Reglerfreigabe umgeschaltet. Neuer Wert: 1
+2024-11-18 22:41:40,250 - INFO - disconnecting snap7 client
+2024-11-18 22:41:40,250 - INFO - destroying snap7 client
+2024-11-18 22:41:40,251 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:40] "POST /toggle_reglerfreigabe HTTP/1.1" 200 -
+2024-11-18 22:41:43,273 - INFO - creating snap7 client
+2024-11-18 22:41:43,273 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 22:41:43,284 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:43] "POST /settings HTTP/1.1" 200 -
+2024-11-18 22:41:43,306 - INFO - Reglerfreigabe umgeschaltet. Neuer Wert: 0
+2024-11-18 22:41:43,306 - INFO - disconnecting snap7 client
+2024-11-18 22:41:43,307 - INFO - destroying snap7 client
+2024-11-18 22:41:43,307 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:43] "POST /toggle_reglerfreigabe HTTP/1.1" 200 -
+2024-11-18 22:41:52,054 - INFO - creating snap7 client
+2024-11-18 22:41:52,054 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 22:41:52,214 - INFO - disconnecting snap7 client
+2024-11-18 22:41:52,216 - INFO - destroying snap7 client
+2024-11-18 22:41:52,216 - INFO - 127.0.0.1 - - [18/Nov/2024 22:41:52] "GET /order_queue HTTP/1.1" 200 -
+2024-11-18 22:42:57,560 - INFO - creating snap7 client
+2024-11-18 22:42:57,560 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 22:42:57,720 - INFO - disconnecting snap7 client
+2024-11-18 22:42:57,721 - INFO - destroying snap7 client
+2024-11-18 22:42:57,721 - INFO - 127.0.0.1 - - [18/Nov/2024 22:42:57] "GET /order_queue HTTP/1.1" 200 -
+2024-11-18 22:43:00,174 - INFO - creating snap7 client
+2024-11-18 22:43:00,174 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 22:43:00,199 - INFO - Bestellung an SPS-Index 2 erfolgreich gelöscht.
+2024-11-18 22:43:00,199 - INFO - disconnecting snap7 client
+2024-11-18 22:43:00,199 - INFO - destroying snap7 client
+2024-11-18 22:43:00,199 - INFO - 127.0.0.1 - - [18/Nov/2024 22:43:00] "POST /delete_order/2 HTTP/1.1" 200 -
+2024-11-18 22:43:01,222 - INFO - creating snap7 client
+2024-11-18 22:43:01,222 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-18 22:43:01,393 - INFO - disconnecting snap7 client
+2024-11-18 22:43:01,393 - INFO - destroying snap7 client
+2024-11-18 22:43:01,393 - INFO - 127.0.0.1 - - [18/Nov/2024 22:43:01] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:27:11,766 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 16:27:11,766 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 16:27:11,767 - INFO -  * Restarting with stat
+2024-11-19 16:27:11,906 - WARNING -  * Debugger is active!
+2024-11-19 16:27:11,916 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 16:27:19,021 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:19] "[32mGET / HTTP/1.1[0m" 302 -
+2024-11-19 16:27:19,034 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:19] "GET /register HTTP/1.1" 200 -
+2024-11-19 16:27:19,233 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-19 16:27:23,863 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:23] "[32mPOST /register HTTP/1.1[0m" 302 -
+2024-11-19 16:27:23,877 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:23] "GET / HTTP/1.1" 200 -
+2024-11-19 16:27:29,281 - INFO - creating snap7 client
+2024-11-19 16:27:29,281 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:27:30,033 - ERROR - b' TCP : Unreachable peer'
+2024-11-19 16:27:30,033 - ERROR - Fehler beim Abrufen der Warteschleife: b' TCP : Unreachable peer'
+2024-11-19 16:27:30,033 - INFO - destroying snap7 client
+2024-11-19 16:27:30,033 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:30] "[32mGET /order_queue HTTP/1.1[0m" 302 -
+2024-11-19 16:27:30,041 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:30] "GET / HTTP/1.1" 200 -
+2024-11-19 16:27:31,000 - INFO - creating snap7 client
+2024-11-19 16:27:31,000 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:27:31,751 - ERROR - b' TCP : Unreachable peer'
+2024-11-19 16:27:31,752 - ERROR - Fehler beim Abrufen der Warteschleife: b' TCP : Unreachable peer'
+2024-11-19 16:27:31,753 - INFO - destroying snap7 client
+2024-11-19 16:27:31,756 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:31] "[32mGET /order_queue HTTP/1.1[0m" 302 -
+2024-11-19 16:27:31,784 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:31] "GET / HTTP/1.1" 200 -
+2024-11-19 16:27:46,230 - INFO - creating snap7 client
+2024-11-19 16:27:46,230 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:27:46,362 - INFO - disconnecting snap7 client
+2024-11-19 16:27:46,364 - INFO - destroying snap7 client
+2024-11-19 16:27:46,365 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:46] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:27:49,299 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:27:49,300 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:49] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:27:49,306 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:49] "GET / HTTP/1.1" 200 -
+2024-11-19 16:27:55,150 - INFO - creating snap7 client
+2024-11-19 16:27:55,150 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:27:55,289 - INFO - disconnecting snap7 client
+2024-11-19 16:27:55,289 - INFO - destroying snap7 client
+2024-11-19 16:27:55,289 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:55] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:27:57,732 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:27:57,733 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:57] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:27:57,738 - INFO - 127.0.0.1 - - [19/Nov/2024 16:27:57] "GET / HTTP/1.1" 200 -
+2024-11-19 16:29:02,477 - INFO - creating snap7 client
+2024-11-19 16:29:02,477 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:29:02,514 - INFO - destroying snap7 client
+2024-11-19 16:29:02,515 - INFO - 127.0.0.1 - - [19/Nov/2024 16:29:02] "GET /create_cocktail HTTP/1.1" 200 -
+2024-11-19 16:29:16,776 - INFO - creating snap7 client
+2024-11-19 16:29:16,776 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:29:16,807 - INFO - Cocktail test mit ID 1 wurde erstellt. Bildpfad: None
+2024-11-19 16:29:16,815 - INFO - destroying snap7 client
+2024-11-19 16:29:16,815 - INFO - 127.0.0.1 - - [19/Nov/2024 16:29:16] "[32mPOST /create_cocktail HTTP/1.1[0m" 302 -
+2024-11-19 16:29:16,822 - INFO - 127.0.0.1 - - [19/Nov/2024 16:29:16] "GET / HTTP/1.1" 200 -
+2024-11-19 16:29:19,576 - INFO - creating snap7 client
+2024-11-19 16:29:19,576 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:29:19,583 - ERROR - Fehler bei der Bestellung: no such table: flaschen
+2024-11-19 16:29:19,583 - INFO - destroying snap7 client
+2024-11-19 16:29:19,583 - INFO - 127.0.0.1 - - [19/Nov/2024 16:29:19] "[35m[1mPOST /order_cocktail/1 HTTP/1.1[0m" 500 -
+2024-11-19 16:29:27,411 - INFO - 127.0.0.1 - - [19/Nov/2024 16:29:27] "GET /settings HTTP/1.1" 200 -
+2024-11-19 16:29:28,444 - INFO - creating snap7 client
+2024-11-19 16:29:28,444 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:29:28,475 - INFO - disconnecting snap7 client
+2024-11-19 16:29:28,480 - INFO - destroying snap7 client
+2024-11-19 16:29:28,481 - INFO - 127.0.0.1 - - [19/Nov/2024 16:29:28] "GET /flaschen_alle HTTP/1.1" 200 -
+2024-11-19 16:29:46,400 - INFO - 127.0.0.1 - - [19/Nov/2024 16:29:46] "GET / HTTP/1.1" 200 -
+2024-11-19 16:30:45,219 - INFO - creating snap7 client
+2024-11-19 16:30:45,219 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:30:45,227 - ERROR - Fehler bei der Bestellung: no such table: flaschen
+2024-11-19 16:30:45,227 - INFO - destroying snap7 client
+2024-11-19 16:30:45,227 - INFO - 127.0.0.1 - - [19/Nov/2024 16:30:45] "[35m[1mPOST /order_cocktail/1 HTTP/1.1[0m" 500 -
+2024-11-19 16:31:11,599 - INFO - creating snap7 client
+2024-11-19 16:31:11,600 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:31:11,733 - INFO - disconnecting snap7 client
+2024-11-19 16:31:11,733 - INFO - destroying snap7 client
+2024-11-19 16:31:11,734 - INFO - 127.0.0.1 - - [19/Nov/2024 16:31:11] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:31:44,594 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/create_db.py', reloading
+2024-11-19 16:31:44,632 - INFO -  * Restarting with stat
+2024-11-19 16:31:44,799 - WARNING -  * Debugger is active!
+2024-11-19 16:31:44,801 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 16:32:41,509 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:41] "[32mGET / HTTP/1.1[0m" 302 -
+2024-11-19 16:32:41,519 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:41] "GET /register HTTP/1.1" 200 -
+2024-11-19 16:32:45,308 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:45] "[32mPOST /register HTTP/1.1[0m" 302 -
+2024-11-19 16:32:45,320 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:45] "GET / HTTP/1.1" 200 -
+2024-11-19 16:32:46,642 - INFO - creating snap7 client
+2024-11-19 16:32:46,642 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:32:46,676 - INFO - destroying snap7 client
+2024-11-19 16:32:46,677 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:46] "GET /create_cocktail HTTP/1.1" 200 -
+2024-11-19 16:32:57,332 - INFO - creating snap7 client
+2024-11-19 16:32:57,332 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:32:57,364 - INFO - Cocktail test mit ID 1 wurde erstellt. Bildpfad: None
+2024-11-19 16:32:57,371 - INFO - destroying snap7 client
+2024-11-19 16:32:57,371 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:57] "[32mPOST /create_cocktail HTTP/1.1[0m" 302 -
+2024-11-19 16:32:57,377 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:57] "GET / HTTP/1.1" 200 -
+2024-11-19 16:32:59,348 - INFO - creating snap7 client
+2024-11-19 16:32:59,349 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:32:59,355 - INFO - Zähler für Cocktail 1 inkrementiert. Alter Wert: 0
+2024-11-19 16:32:59,460 - INFO - disconnecting snap7 client
+2024-11-19 16:32:59,460 - INFO - destroying snap7 client
+2024-11-19 16:32:59,461 - INFO - 127.0.0.1 - - [19/Nov/2024 16:32:59] "POST /order_cocktail/1 HTTP/1.1" 200 -
+2024-11-19 16:33:02,029 - INFO - creating snap7 client
+2024-11-19 16:33:02,029 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:33:02,158 - INFO - disconnecting snap7 client
+2024-11-19 16:33:02,161 - INFO - destroying snap7 client
+2024-11-19 16:33:02,161 - INFO - 127.0.0.1 - - [19/Nov/2024 16:33:02] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:33:04,142 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:33:04,143 - INFO - 127.0.0.1 - - [19/Nov/2024 16:33:04] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:33:04,149 - INFO - 127.0.0.1 - - [19/Nov/2024 16:33:04] "GET / HTTP/1.1" 200 -
+2024-11-19 16:34:04,755 - INFO - 127.0.0.1 - - [19/Nov/2024 16:34:04] "GET /order_logs HTTP/1.1" 200 -
+2024-11-19 16:35:05,509 - INFO - 127.0.0.1 - - [19/Nov/2024 16:35:05] "GET / HTTP/1.1" 200 -
+2024-11-19 16:37:38,359 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-19 16:37:38,391 - INFO -  * Restarting with stat
+2024-11-19 16:37:38,535 - WARNING -  * Debugger is active!
+2024-11-19 16:37:38,537 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 16:38:01,620 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-19 16:38:01,655 - INFO -  * Restarting with stat
+2024-11-19 16:38:01,805 - WARNING -  * Debugger is active!
+2024-11-19 16:38:01,807 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 16:38:04,792 - INFO - creating snap7 client
+2024-11-19 16:38:04,792 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:38:04,801 - INFO - Zähler für Cocktail 1 inkrementiert. Alter Wert: 1
+2024-11-19 16:38:04,912 - INFO - disconnecting snap7 client
+2024-11-19 16:38:04,912 - INFO - destroying snap7 client
+2024-11-19 16:38:04,912 - INFO - 127.0.0.1 - - [19/Nov/2024 16:38:04] "POST /order_cocktail/1 HTTP/1.1" 200 -
+2024-11-19 16:38:07,689 - INFO - creating snap7 client
+2024-11-19 16:38:07,689 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:38:07,817 - INFO - disconnecting snap7 client
+2024-11-19 16:38:07,822 - INFO - destroying snap7 client
+2024-11-19 16:38:07,822 - INFO - 127.0.0.1 - - [19/Nov/2024 16:38:07] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:38:09,083 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:38:09,083 - INFO - 127.0.0.1 - - [19/Nov/2024 16:38:09] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:38:09,096 - INFO - 127.0.0.1 - - [19/Nov/2024 16:38:09] "GET / HTTP/1.1" 200 -
+2024-11-19 16:39:51,100 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-19 16:39:51,153 - INFO -  * Restarting with stat
+2024-11-19 16:39:51,468 - WARNING -  * Debugger is active!
+2024-11-19 16:39:51,478 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 16:39:56,872 - INFO - 127.0.0.1 - - [19/Nov/2024 16:39:56] "GET / HTTP/1.1" 200 -
+2024-11-19 16:39:57,700 - INFO - creating snap7 client
+2024-11-19 16:39:57,700 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:39:57,831 - INFO - disconnecting snap7 client
+2024-11-19 16:39:57,835 - INFO - destroying snap7 client
+2024-11-19 16:39:57,835 - INFO - 127.0.0.1 - - [19/Nov/2024 16:39:57] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:39:58,695 - INFO - Benutzer für Dashboard: [<sqlite3.Row object at 0x7fb8400a38b0>]
+2024-11-19 16:39:58,695 - INFO - Bestelldaten für Dashboard: [<sqlite3.Row object at 0x7fb8400a3730>]
+2024-11-19 16:39:58,695 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:39:58,696 - INFO - 127.0.0.1 - - [19/Nov/2024 16:39:58] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:39:58,704 - INFO - 127.0.0.1 - - [19/Nov/2024 16:39:58] "GET / HTTP/1.1" 200 -
+2024-11-19 16:40:30,241 - INFO - creating snap7 client
+2024-11-19 16:40:30,243 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:40:30,371 - INFO - disconnecting snap7 client
+2024-11-19 16:40:30,372 - INFO - destroying snap7 client
+2024-11-19 16:40:30,372 - INFO - 127.0.0.1 - - [19/Nov/2024 16:40:30] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:40:31,422 - INFO - Benutzer für Dashboard: [<sqlite3.Row object at 0x7fb8400a32b0>]
+2024-11-19 16:40:31,422 - INFO - Bestelldaten für Dashboard: [<sqlite3.Row object at 0x7fb8400a10f0>]
+2024-11-19 16:40:31,422 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:40:31,423 - INFO - 127.0.0.1 - - [19/Nov/2024 16:40:31] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:40:31,429 - INFO - 127.0.0.1 - - [19/Nov/2024 16:40:31] "GET / HTTP/1.1" 200 -
+2024-11-19 16:52:24,364 - INFO - creating snap7 client
+2024-11-19 16:52:24,366 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:52:24,498 - INFO - disconnecting snap7 client
+2024-11-19 16:52:24,502 - INFO - destroying snap7 client
+2024-11-19 16:52:24,502 - INFO - 127.0.0.1 - - [19/Nov/2024 16:52:24] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:52:25,590 - INFO - Benutzer für Dashboard: [<sqlite3.Row object at 0x7fb8400c4700>]
+2024-11-19 16:52:25,590 - INFO - Bestelldaten für Dashboard: [<sqlite3.Row object at 0x7fb8400c4040>]
+2024-11-19 16:52:25,590 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:52:25,590 - INFO - 127.0.0.1 - - [19/Nov/2024 16:52:25] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:52:25,598 - INFO - 127.0.0.1 - - [19/Nov/2024 16:52:25] "GET / HTTP/1.1" 200 -
+2024-11-19 16:52:34,735 - INFO - creating snap7 client
+2024-11-19 16:52:34,735 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:52:34,868 - INFO - disconnecting snap7 client
+2024-11-19 16:52:34,869 - INFO - destroying snap7 client
+2024-11-19 16:52:34,870 - INFO - 127.0.0.1 - - [19/Nov/2024 16:52:34] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:52:37,085 - INFO - Benutzer für Dashboard: [<sqlite3.Row object at 0x7fb8400c5d20>]
+2024-11-19 16:52:37,085 - INFO - Bestelldaten für Dashboard: [<sqlite3.Row object at 0x7fb8400c6080>]
+2024-11-19 16:52:37,085 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:52:37,086 - INFO - 127.0.0.1 - - [19/Nov/2024 16:52:37] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:52:37,093 - INFO - 127.0.0.1 - - [19/Nov/2024 16:52:37] "GET / HTTP/1.1" 200 -
+2024-11-19 16:55:35,140 - INFO - 127.0.0.1 - - [19/Nov/2024 16:55:35] "GET / HTTP/1.1" 200 -
+2024-11-19 16:55:36,782 - INFO - creating snap7 client
+2024-11-19 16:55:36,782 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:55:36,911 - INFO - disconnecting snap7 client
+2024-11-19 16:55:36,912 - INFO - destroying snap7 client
+2024-11-19 16:55:36,912 - INFO - 127.0.0.1 - - [19/Nov/2024 16:55:36] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:55:38,041 - INFO - Benutzer für Dashboard: [<sqlite3.Row object at 0x7fb8414c21d0>]
+2024-11-19 16:55:38,041 - INFO - Bestelldaten für Dashboard: [<sqlite3.Row object at 0x7fb840ab9d80>]
+2024-11-19 16:55:38,041 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:55:38,041 - INFO - 127.0.0.1 - - [19/Nov/2024 16:55:38] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:55:38,046 - INFO - 127.0.0.1 - - [19/Nov/2024 16:55:38] "GET / HTTP/1.1" 200 -
+2024-11-19 16:57:02,787 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-19 16:57:02,824 - INFO -  * Restarting with stat
+2024-11-19 16:57:03,105 - WARNING -  * Debugger is active!
+2024-11-19 16:57:03,151 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 16:57:14,256 - INFO - 127.0.0.1 - - [19/Nov/2024 16:57:14] "GET / HTTP/1.1" 200 -
+2024-11-19 16:57:15,165 - INFO - creating snap7 client
+2024-11-19 16:57:15,165 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:57:15,297 - INFO - disconnecting snap7 client
+2024-11-19 16:57:15,300 - INFO - destroying snap7 client
+2024-11-19 16:57:15,300 - INFO - 127.0.0.1 - - [19/Nov/2024 16:57:15] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:57:16,494 - INFO - Benutzer: [<sqlite3.Row object at 0x7f0ed45eb100>]
+2024-11-19 16:57:16,494 - INFO - Bestellungen: [<sqlite3.Row object at 0x7f0ed45eb430>]
+2024-11-19 16:57:16,495 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:57:16,496 - INFO - 127.0.0.1 - - [19/Nov/2024 16:57:16] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:57:16,504 - INFO - 127.0.0.1 - - [19/Nov/2024 16:57:16] "GET / HTTP/1.1" 200 -
+2024-11-19 16:58:55,428 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-19 16:58:55,473 - INFO -  * Restarting with stat
+2024-11-19 16:59:52,404 - WARNING -  * Debugger is active!
+2024-11-19 16:59:52,414 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 16:59:19,931 - INFO - creating snap7 client
+2024-11-19 16:59:19,931 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 16:59:20,069 - INFO - disconnecting snap7 client
+2024-11-19 16:59:20,088 - INFO - destroying snap7 client
+2024-11-19 16:59:20,088 - INFO - 127.0.0.1 - - [19/Nov/2024 16:59:20] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 16:59:20,953 - INFO - Benutzer für Dashboard: [{'id': 1, 'username': 'Schülting'}]
+2024-11-19 16:59:20,953 - INFO - Bestellungen für Dashboard: [{'user_id': 1, 'order_time': '2024-11-19 15:38:04', 'cocktail_count': 1, 'total_alcohol': 0.0}]
+2024-11-19 16:59:20,953 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 16:59:20,954 - INFO - 127.0.0.1 - - [19/Nov/2024 16:59:20] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 16:59:20,986 - INFO - 127.0.0.1 - - [19/Nov/2024 16:59:20] "GET / HTTP/1.1" 200 -
+2024-11-19 17:00:03,919 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:03] "GET / HTTP/1.1" 200 -
+2024-11-19 17:00:04,548 - INFO - creating snap7 client
+2024-11-19 17:00:04,548 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:04,676 - INFO - disconnecting snap7 client
+2024-11-19 17:00:04,677 - INFO - destroying snap7 client
+2024-11-19 17:00:04,678 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:04] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 17:00:05,482 - INFO - Benutzer für Dashboard: [{'id': 1, 'username': 'Schülting'}]
+2024-11-19 17:00:05,482 - INFO - Bestellungen für Dashboard: [{'user_id': 1, 'order_time': '2024-11-19 15:38:04', 'cocktail_count': 1, 'total_alcohol': 0.0}]
+2024-11-19 17:00:05,482 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 17:00:05,483 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:05] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 17:00:05,491 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:05] "GET / HTTP/1.1" 200 -
+2024-11-19 17:00:33,361 - INFO - creating snap7 client
+2024-11-19 17:00:33,361 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:33,490 - INFO - disconnecting snap7 client
+2024-11-19 17:00:33,490 - INFO - destroying snap7 client
+2024-11-19 17:00:33,491 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:33] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 17:00:35,909 - INFO - creating snap7 client
+2024-11-19 17:00:35,909 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:35,915 - ERROR - b'CLI : invalid param(s) supplied'
+2024-11-19 17:00:35,915 - ERROR - Fehler beim Löschen der Bestellung: b'CLI : invalid param(s) supplied'
+2024-11-19 17:00:35,915 - INFO - destroying snap7 client
+2024-11-19 17:00:35,916 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:35] "[35m[1mPOST /delete_order/0 HTTP/1.1[0m" 500 -
+2024-11-19 17:00:39,079 - INFO - creating snap7 client
+2024-11-19 17:00:39,080 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:39,212 - INFO - disconnecting snap7 client
+2024-11-19 17:00:39,213 - INFO - destroying snap7 client
+2024-11-19 17:00:39,213 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:39] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 17:00:41,739 - INFO - creating snap7 client
+2024-11-19 17:00:41,739 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:41,744 - ERROR - b'CLI : invalid param(s) supplied'
+2024-11-19 17:00:41,744 - ERROR - Fehler beim Löschen der Bestellung: b'CLI : invalid param(s) supplied'
+2024-11-19 17:00:41,744 - INFO - destroying snap7 client
+2024-11-19 17:00:41,744 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:41] "[35m[1mPOST /delete_order/0 HTTP/1.1[0m" 500 -
+2024-11-19 17:00:42,838 - INFO - creating snap7 client
+2024-11-19 17:00:42,838 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:42,969 - INFO - disconnecting snap7 client
+2024-11-19 17:00:42,970 - INFO - destroying snap7 client
+2024-11-19 17:00:42,970 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:42] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 17:00:54,776 - INFO - creating snap7 client
+2024-11-19 17:00:54,776 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:54,783 - INFO - Zähler für Cocktail 1 inkrementiert. Alter Wert: 2
+2024-11-19 17:00:54,897 - INFO - disconnecting snap7 client
+2024-11-19 17:00:54,897 - INFO - destroying snap7 client
+2024-11-19 17:00:54,898 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:54] "POST /order_cocktail/1 HTTP/1.1" 200 -
+2024-11-19 17:00:57,097 - INFO - creating snap7 client
+2024-11-19 17:00:57,097 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:00:57,249 - INFO - disconnecting snap7 client
+2024-11-19 17:00:57,250 - INFO - destroying snap7 client
+2024-11-19 17:00:57,250 - INFO - 127.0.0.1 - - [19/Nov/2024 17:00:57] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 17:01:12,145 - INFO - creating snap7 client
+2024-11-19 17:01:12,145 - INFO - connecting to 192.168.178.50:102 rack 0 slot 0
+2024-11-19 17:01:12,276 - INFO - disconnecting snap7 client
+2024-11-19 17:01:12,277 - INFO - destroying snap7 client
+2024-11-19 17:01:12,277 - INFO - 127.0.0.1 - - [19/Nov/2024 17:01:12] "GET /order_queue HTTP/1.1" 200 -
+2024-11-19 17:01:14,985 - INFO - Benutzer für Dashboard: [{'id': 1, 'username': 'Schülting'}]
+2024-11-19 17:01:14,985 - INFO - Bestellungen für Dashboard: [{'user_id': 1, 'order_time': '2024-11-19 15:38:04', 'cocktail_count': 2, 'total_alcohol': 0.0}]
+2024-11-19 17:01:14,985 - ERROR - Fehler beim Abrufen der Dashboard-Daten: dashboard.html
+2024-11-19 17:01:14,986 - INFO - 127.0.0.1 - - [19/Nov/2024 17:01:14] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2024-11-19 17:01:14,991 - INFO - 127.0.0.1 - - [19/Nov/2024 17:01:14] "GET / HTTP/1.1" 200 -
+2024-11-19 17:02:24,977 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-19 17:02:25,019 - INFO -  * Restarting with stat
+2024-11-19 17:02:25,328 - WARNING -  * Debugger is active!
+2024-11-19 17:02:25,337 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 17:03:50,046 - INFO -  * Detected change in '/Entwicklung/Alkinator/Alkinator App/app.py', reloading
+2024-11-19 17:03:50,080 - INFO -  * Restarting with stat
+2024-11-19 17:11:23,486 - INFO -  * Restarting with stat
+2024-11-19 17:12:22,916 - INFO -  * Restarting with stat
+2024-11-19 17:13:21,371 - INFO -  * Restarting with stat
+2024-11-19 17:24:00,969 - INFO -  * Restarting with stat
+2024-11-19 17:34:23,868 - INFO -  * Restarting with stat
+2024-11-19 17:41:06,563 - INFO -  * Restarting with stat
