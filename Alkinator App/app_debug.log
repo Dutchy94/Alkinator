@@ -5526,3 +5526,15 @@ jinja2.exceptions.TemplateNotFound: dashboard.html
 2024-11-19 20:08:43,226 - INFO -  * Restarting with stat
 2024-11-19 20:08:43,405 - WARNING -  * Debugger is active!
 2024-11-19 20:08:43,407 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 20:23:05,046 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 20:23:05,047 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 20:23:05,048 - INFO -  * Restarting with stat
+2024-11-19 20:23:05,203 - WARNING -  * Debugger is active!
+2024-11-19 20:23:05,213 - INFO -  * Debugger PIN: 516-891-615
+2024-11-19 20:23:07,350 - INFO - 127.0.0.1 - - [19/Nov/2024 20:23:07] "GET / HTTP/1.1" 200 -
+2024-11-19 20:23:08,608 - INFO - 127.0.0.1 - - [19/Nov/2024 20:23:08] "GET /settings HTTP/1.1" 200 -
+2024-11-19 20:23:33,126 - INFO - 127.0.0.1 - - [19/Nov/2024 20:23:33] "GET /settings HTTP/1.1" 200 -
+2024-11-19 20:23:42,547 - INFO - 127.0.0.1 - - [19/Nov/2024 20:23:42] "[32mPOST /save_wifi_config HTTP/1.1[0m" 302 -
+2024-11-19 20:23:42,555 - INFO - 127.0.0.1 - - [19/Nov/2024 20:23:42] "GET /settings HTTP/1.1" 200 -
+2024-11-19 20:23:56,143 - INFO - 127.0.0.1 - - [19/Nov/2024 20:23:56] "GET / HTTP/1.1" 200 -

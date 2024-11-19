@@ -344,6 +344,36 @@ def settings():
 
     return render_template('settings.html', sps_ip=sps_ip, global_access=global_access)
 
+# Route zum Speichern der WLAN-Konfiguration
+@app.route('/save_wifi_config', methods=['POST'])
+def save_wifi_config():
+    ssid = request.form['ssid']
+    password = request.form['password']
+    
+    # Speichern der WLAN-Konfiguration in einer Datei
+    wifi_config_file = '/etc/wpa_supplicant/wpa_supplicant.conf'
+    
+    # Stelle sicher, dass die Datei schreibbar ist
+    try:
+        with open(wifi_config_file, 'a') as f:
+            f.write(f"\nnetwork={{\n")
+            f.write(f"    ssid=\"{ssid}\"\n")
+            f.write(f"    psk=\"{password}\"\n")
+            f.write(f"}}\n")
+        flash("WLAN-Konfiguration erfolgreich gespeichert. Der Raspberry Pi wird sich mit dem Netzwerk verbinden.", "success")
+    except Exception as e:
+        flash(f"Fehler beim Speichern der WLAN-Konfiguration: {e}", "danger")
+        return redirect(url_for('settings'))
+    
+    # Neustart des Netzwerkdienstes
+    try:
+        subprocess.run(["sudo", "wpa_cli", "-i", "wlan0", "reconnect"], check=True)
+        flash("Verbindung zum WLAN wird hergestellt...", "success")
+    except subprocess.CalledProcessError as e:
+        flash(f"Fehler beim Verbinden mit dem WLAN: {e}", "danger")
+
+    return redirect(url_for('settings'))
+
 @app.context_processor
 def inject_global_settings():
     with get_db_connection() as conn:
