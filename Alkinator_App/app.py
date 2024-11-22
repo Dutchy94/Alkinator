@@ -3,7 +3,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash, generate_password_hash
 from sps_kommunikation import read_udt_array, UDTFlasche, SPSKommunikation
+import subprocess
 
+import uuid
 
 
 import sqlite3
@@ -349,29 +351,26 @@ def settings():
 def save_wifi_config():
     ssid = request.form['ssid']
     password = request.form['password']
-    
-    # Speichern der WLAN-Konfiguration in einer Datei
-    wifi_config_file = '/etc/wpa_supplicant/wpa_supplicant.conf'
-    
-    # Stelle sicher, dass die Datei schreibbar ist
+    logging.info(f"SSID: {ssid} erfolgreich empfangen.")
+    logging.info(f"Password: {password} erfolgreich empfangen.")
     try:
-        with open(wifi_config_file, 'a') as f:
-            f.write(f"\nnetwork={{\n")
-            f.write(f"    ssid=\"{ssid}\"\n")
-            f.write(f"    psk=\"{password}\"\n")
-            f.write(f"}}\n")
-        flash("WLAN-Konfiguration erfolgreich gespeichert. Der Raspberry Pi wird sich mit dem Netzwerk verbinden.", "success")
-    except Exception as e:
-        flash(f"Fehler beim Speichern der WLAN-Konfiguration: {e}", "danger")
-        return redirect(url_for('settings'))
-    
-    # Neustart des Netzwerkdienstes
-    try:
-        subprocess.run(["sudo", "wpa_cli", "-i", "wlan0", "reconnect"], check=True)
-        flash("Verbindung zum WLAN wird hergestellt...", "success")
+        # Ausführung des nmcli-Befehls
+        result = subprocess.run(
+            ['nmcli', 'dev', 'wifi', 'connect', ssid, 'password', password],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        logging.info(f"WLAN-Verbindung erfolgreich hergestellt: {result.stdout.strip()}")
     except subprocess.CalledProcessError as e:
-        flash(f"Fehler beim Verbinden mit dem WLAN: {e}", "danger")
-
+        # Fehler bei der Ausführung des Befehls
+        error_message = e.stderr.strip()
+        logging.error(f"Fehler beim Verbinden mit dem WLAN: {error_message}")
+    except Exception as e:
+        logging.error(f"Ein unerwarteter Fehler ist aufgetreten: {str(e)}")
+    
+    # Statt `flash`, einfach Logging verwenden
     return redirect(url_for('settings'))
 
 @app.context_processor
@@ -1022,4 +1021,4 @@ def remove_image_path(id):
 # Flask-Anwendung starten
 if __name__ == "__main__":
     print("Starte Flask-Anwendung...")
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
