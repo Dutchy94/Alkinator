@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Dashboard</a>
         <div class="collapse navbar-collapse">
@@ -23,11 +22,10 @@
         </div>
     </nav>
 
-    <!-- Hauptcontainer -->
     <div class="container mt-5">
         <h1 class="text-center">Cocktail-Bestellungen Dashboard</h1>
-        
-        <!-- Statistiken -->
+
+        <!-- Gesamte Statistiken -->
         <div class="row mb-4">
             <div class="col-md-4">
                 <div class="card text-white bg-primary">
@@ -49,10 +47,32 @@
             </div>
         </div>
 
+        <!-- Tagesdaten -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card text-white bg-info">
+                    <div class="card-header">Heutige Cocktails</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="todayCocktails">{{ total_cocktails_today }}</h5>
+                        <p class="card-text">Bestellungen heute.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-warning">
+                    <div class="card-header">Heutiger Alkoholgehalt</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="todayAlcohol">{{ total_alcohol_today }}</h5>
+                        <p class="card-text">Alkoholmenge (ml) heute.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Benutzerfilter -->
         <div class="form-group mb-4">
             <label for="user-filter">Benutzer auswählen:</label>
-            <select id="user-filter" class="form-control" onchange="updateGraph()">
+            <select id="user-filter" class="form-control" onchange="updateTodayStats()">
                 <option value="all">Alle Benutzer</option>
                 {% for user in users %}
                     <option value="{{ user['id'] }}">{{ user['username'] }}</option>
@@ -60,34 +80,23 @@
             </select>
         </div>
 
-        <!-- Graph -->
+        <!-- Diagramm -->
         <canvas id="cocktailChart" width="800" height="400"></canvas>
     </div>
 
     <script>
-        // Bestelldaten aus Python einlesen
         const graphOrders = JSON.parse('{{ orders | tojson | safe }}');
-
-        // Kontext des Canvas
+        const todayOrders = JSON.parse('{{ today_orders | tojson | safe }}');
         const ctx = document.getElementById('cocktailChart').getContext('2d');
 
-        // Initialisiere den Chart
         const chart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: [], // Datum
-                datasets: [{
-                    label: 'Cocktails pro Tag',
-                    data: [],
-                    borderColor: 'blue',
-                    fill: false
-                },
-                {
-                    label: 'Alkoholgehalt (ml)',
-                    data: [],
-                    borderColor: 'red',
-                    fill: false
-                }]
+                labels: [],
+                datasets: [
+                    { label: 'Cocktails pro Tag', data: [], borderColor: 'blue', fill: false },
+                    { label: 'Alkoholgehalt (ml)', data: [], borderColor: 'red', fill: false }
+                ]
             },
             options: {
                 responsive: true,
@@ -104,14 +113,15 @@
             }
         });
 
-        // Funktion zur Aktualisierung des Graphen
         function updateGraph() {
             const userId = document.getElementById('user-filter').value;
 
             // Filtere die Daten basierend auf der Benutzer-ID
             const filteredOrders = userId === 'all'
                 ? graphOrders
-                : graphOrders.filter(order => order.user_id == userId);
+                : graphOrders.filter(order => String(order.user_id) === String(userId));
+
+            console.log("Gefilterte Daten:", filteredOrders);
 
             // Gruppiere die Daten nach Datum
             const groupedData = {};
@@ -124,15 +134,36 @@
                 groupedData[date].alcohol += order.total_alcohol;
             });
 
-            // Aktualisiere den Chart
+            // Debug: Überprüfen Sie die Gruppierung
+            console.log("Gruppierte Daten:", groupedData);
+
+            // Aktualisiere die Labels und Daten des Diagramms
             chart.data.labels = Object.keys(groupedData);
             chart.data.datasets[0].data = Object.values(groupedData).map(data => data.count);
             chart.data.datasets[1].data = Object.values(groupedData).map(data => data.alcohol);
             chart.update();
         }
 
-        // Initiales Update des Graphen
+
+        function updateTodayStats() {
+            const userId = document.getElementById('user-filter').value;
+
+            if (userId === 'all') {
+                document.getElementById('todayCocktails').textContent = '{{ total_cocktails_today }}';
+                document.getElementById('todayAlcohol').textContent = '{{ total_alcohol_today }}';
+            } else {
+                const userTodayStats = todayOrders[userId] || { cocktail_count: 0, total_alcohol: 0 };
+                document.getElementById('todayCocktails').textContent = userTodayStats.cocktail_count;
+                document.getElementById('todayAlcohol').textContent = userTodayStats.total_alcohol;
+            }
+
+            // Aktualisiere das Diagramm basierend auf der Benutzer-ID
+            updateGraph();
+        }
+
+
         updateGraph();
+        updateTodayStats();
     </script>
 </body>
 </html>

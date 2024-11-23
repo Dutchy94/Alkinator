@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
+from flask_socketio import SocketIO, emit
 from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash, generate_password_hash
 from sps_kommunikation import read_udt_array, UDTFlasche, SPSKommunikation
@@ -429,23 +430,20 @@ def order_queue():
 def delete_order(order_index):
     try:
         sps = SPSKommunikation(get_sps_ip())
-
-        # Berechnung der Adressen
-        start_address_name = (order_index - 1) * 62
+        logging.info(f"Order Index: {order_index}")
+        
+        # Berechnung der Adressen und Rücksetzung
+        start_address_name = (order_index) * 62
         start_address_menge = start_address_name + 22
-
-        # Name und Mengen zurücksetzen
         empty_name = struct.pack('>BB20s', 20, 0, b'')
         zero_menge = struct.pack('>20H', *[0] * 20)
-
         sps.write_db(130, start_address_name, empty_name)
         sps.write_db(130, start_address_menge, zero_menge)
-
+        
         # Überprüfung
         read_name = sps.read_db(130, start_address_name, 22)
         _, actual_length, read_name_raw = struct.unpack('>BB20s', read_name)
         read_name_decoded = read_name_raw[:actual_length].decode('ascii').strip()
-
         read_menge = sps.read_db(130, start_address_menge, 40)
         read_menge_values = struct.unpack('>20H', read_menge)
 
@@ -454,6 +452,9 @@ def delete_order(order_index):
 
         logging.info(f"Bestellung an SPS-Index {order_index} erfolgreich gelöscht.")
         sps.disconnect()
+
+        # Echtzeitsignal senden
+        socketio.emit('order_updated', {'message': 'Order list updated'})
 
         return jsonify({"success": True})
     except Exception as e:
@@ -563,6 +564,9 @@ def flaschen_alle():
                 )
             ''')
 
+            # Liste der aktuellen Flaschen aus der SPS
+            current_flasks = set()
+
             # Iteriere über die Flaschen und verarbeite sie
             for i in range(1, array_length + 1):
                 print(f"Verarbeite Änderungen für Flasche {i}...")
@@ -572,6 +576,8 @@ def flaschen_alle():
                 if not flasche_name:  # Überspringe leere Flaschen
                     logging.warning(f"Flasche {i} hat keinen Namen, überspringe...")
                     continue
+
+                current_flasks.add(flasche_name)
 
                 flasche_x = float(request.form[f'x_{i}'])
                 flasche_y = float(request.form[f'y_{i}'])
@@ -607,6 +613,17 @@ def flaschen_alle():
                     )
                 except sqlite3.IntegrityError as e:
                     logging.error(f"Fehler beim Einfügen/Aktualisieren von Flasche '{flasche.name}': {e}")
+
+            # Entferne alle Zutaten aus `cocktail_ingredients`, die nicht mehr existieren
+            cursor.execute('SELECT name FROM flaschen')
+            existing_flasks = set(row[0] for row in cursor.fetchall())
+
+            flasks_to_remove = existing_flasks - current_flasks
+            if flasks_to_remove:
+                logging.info(f"Entferne Zutaten für nicht mehr existierende Flaschen: {flasks_to_remove}")
+                for flask in flasks_to_remove:
+                    cursor.execute('DELETE FROM cocktail_ingredients WHERE flasche_name = ?', (flask,))
+                    logging.info(f"Zutaten mit Flasche '{flask}' wurden entfernt.")
 
             # Änderungen in der SQLite-Datenbank speichern
             conn.commit()
@@ -670,7 +687,7 @@ def flaschen_alle():
 
 
 
-# Cocktail bestellen
+
 @app.route('/order_cocktail/<int:id>', methods=['POST'])
 def order_cocktail(id):
     try:
@@ -717,6 +734,7 @@ def order_cocktail(id):
                     alkoholgehalt = alkoholgehalt_row[0]
                     alcohol_content += (menge * alkoholgehalt / 100)  # Alkoholgehalt in ml berechnen
                     logging.debug(f"Berechne Alkoholgehalt: Zutat {flasche_name}, Menge {menge} ml, Alkoholgehalt {alkoholgehalt}%")
+            logging.debug(f"Berechne Alkoholgehalt Gesamt {alcohol_content}%")
 
             # Bestellung in die Tabelle `orders` eintragen
             ip_address = request.remote_addr
@@ -776,11 +794,20 @@ def order_cocktail(id):
         for i, menge in enumerate(menge_array):
             sps.write_db(db_number, 3060 + (i * 2), struct.pack('>H', menge))  # Mengen (als UInt)
 
+        # DB100 dbx1.4 setzen
+        db_number_control = 100
+        byte_index = 1
+        bit_index = 4
+        logging.info(f"Setze DB{db_number_control}.DBX{byte_index}.{bit_index}")
+        sps.set_bit(db_number_control, byte_index, bit_index, True)
+        logging.info(f"Bit DB{db_number_control}.DBX{byte_index}.{bit_index} erfolgreich gesetzt.")
+
         sps.disconnect()
         return jsonify({"success": True})
     except Exception as e:
         logging.error(f"Fehler bei der Bestellung: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
+
 
 
 
@@ -795,7 +822,6 @@ def dashboard():
             # Benutzerliste abrufen
             cursor.execute('SELECT id, username FROM users')
             users = cursor.fetchall()
-            logging.info(f"Benutzerliste abgerufen: {users}")
 
             # Daten für den Graphen abrufen
             cursor.execute('''
@@ -805,14 +831,17 @@ def dashboard():
                 ORDER BY order_time
             ''')
             orders = cursor.fetchall()
-            logging.info(f"Bestelldaten abgerufen: {orders}")
 
-            if not users:
-                logging.warning("Keine Benutzer in der Datenbank gefunden.")
-            if not orders:
-                logging.warning("Keine Bestellungen in der Datenbank gefunden.")
+            # Daten für den aktuellen Tag abrufen
+            cursor.execute('''
+                SELECT user_id, COUNT(*) as cocktail_count, SUM(alcohol_content) as total_alcohol
+                FROM user_orders
+                WHERE DATE(order_time) = DATE('now')
+                GROUP BY user_id
+            ''')
+            today_orders = cursor.fetchall()
 
-        # Konvertierung der SQLite Rows zu Dictionaries für das Template
+        # Benutzer- und Bestellungsdaten aufbereiten
         users_list = [{'id': user[0], 'username': user[1]} for user in users]
         orders_list = [
             {
@@ -823,15 +852,23 @@ def dashboard():
             }
             for order in orders
         ]
+        today_orders_dict = {order[0]: {'cocktail_count': order[1], 'total_alcohol': order[2]} for order in today_orders}
 
-        # Berechnung der Gesamtzahl der bestellten Cocktails
+        # Gesamtdaten berechnen
         total_cocktails = sum(order['cocktail_count'] for order in orders_list)
+        total_cocktails_today = sum(order['cocktail_count'] for order in today_orders)
+        total_alcohol_today = sum(order['total_alcohol'] for order in today_orders)
 
-        logging.debug(f"Benutzer für das Template: {users_list}")
-        logging.debug(f"Bestellungen für das Template: {orders_list}")
+        return render_template(
+            'dashboard.html',
+            users=users_list,
+            orders=orders_list,
+            total_cocktails=total_cocktails,
+            total_cocktails_today=total_cocktails_today,
+            total_alcohol_today=total_alcohol_today,
+            today_orders=today_orders_dict
+        )
 
-        return render_template('dashboard.html', users=users_list, orders=orders_list, total_cocktails=total_cocktails)
-    
     except Exception as e:
         logging.error(f"Fehler beim Abrufen der Dashboard-Daten: {e}", exc_info=True)
         flash("Fehler beim Laden des Dashboards.", "danger")
@@ -951,6 +988,9 @@ def edit_cocktail(id):
                 )
 
             # Zutaten speichern
+            # Vor der Schleife: Alle Einträge zur "id" entfernen
+            #cursor.execute('DELETE FROM cocktail_ingredients WHERE cocktail_id = ?', (id,))
+            #logging.info(f"Bestehende Zutaten für Cocktail-ID {id} wurden entfernt.")
             for flasche_name, menge in ingredients:
                 cursor.execute(
                     '''
@@ -961,6 +1001,7 @@ def edit_cocktail(id):
                     (id, flasche_name, menge)
                 )
             conn.commit()
+            logging.info(f"Cocktail-ID {id} wurde bearbeitet.")
 
             # Weiterleitung zur Hauptseite
             return redirect(url_for('index'))
@@ -1021,4 +1062,6 @@ def remove_image_path(id):
 # Flask-Anwendung starten
 if __name__ == "__main__":
     print("Starte Flask-Anwendung...")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    #app.run(debug=True, host='0.0.0.0', port=5000)
+    socketio = SocketIO(app, cors_allowed_origins="*")
+    socketio.run(app, debug=True, host='0.0.0.0', port=5000)

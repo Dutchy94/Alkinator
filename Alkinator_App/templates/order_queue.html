@@ -76,5 +76,29 @@
         }
     }
     </script>
+    <script>
+        setInterval(() => {
+            location.reload();
+        }, 5000); // Alle 5 Sekunden
+    </script>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+    
+        // Auf Signal warten und Seite neu laden
+        socket.on('order_updated', (data) => {
+            console.log(data.message);
+            location.reload();
+        });
+
+        socket.on('connect', () => {
+            console.log('WebSocket verbunden');
+        });
+
+        socket.on('disconnect', () => {
+            console.log('WebSocket getrennt');
+        });
+
+    </script>
 </body>
 </html>
