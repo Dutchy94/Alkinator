@@ -3170,3 +3170,5 @@
 2024-11-29 20:55:26,846 - DEBUG - writing area: DB db_number: 130 start: 0: size 22: word_len Byte=2 type: <class 'ctypes.c_byte'>
 2024-11-29 20:55:26,936 - INFO - disconnecting snap7 client
 2024-11-29 20:55:26,937 - INFO - destroying snap7 client
+2024-11-29 21:09:10,664 - WARNING -  * Debugger is active!
+2024-11-29 21:09:10,665 - INFO -  * Debugger PIN: 189-656-240
