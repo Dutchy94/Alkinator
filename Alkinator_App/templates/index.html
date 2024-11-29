@@ -114,13 +114,14 @@
                             alt="{{ cocktail['name'] }}" 
                             class="cocktail-image">
                         {% endif %}
-
-                        <!-- Bearbeiten-Button -->
-                        {% if session.get('user') in ['Hölker', 'Schülting'] or global_access %}
-                        <a href="{{ url_for('edit_cocktail', id=cocktail['id']) }}" class="btn btn-primary mt-2">Bearbeiten</a>
-                        {% endif %}
-                        <!-- Bestellen-Button -->
-                        <button onclick="orderCocktail({{ cocktail['id'] }})" class="btn btn-success mt-2">Bestellen</button>
+                        <div class="Schaltflaechen">
+                            <!-- Bearbeiten-Button -->
+                            {% if session.get('user') in ['Hölker', 'Schülting'] or global_access %}
+                            <a href="{{ url_for('edit_cocktail', id=cocktail['id']) }}" class="btn btn-primary mt-2">Bearbeiten</a>
+                            {% endif %}
+                            <!-- Bestellen-Button -->
+                            <button onclick="orderCocktail({{ cocktail['id'] }})" class="btn btn-success mt-2">Bestellen</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,7 +155,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert("Bestellung erfolgreich!");
+                    //alert("Bestellung erfolgreich!");
                 } else {
                     alert("Fehler bei der Bestellung: " + (data.error || "Unbekannter Fehler."));
                 }
@@ -191,7 +192,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert("Glas erfolgreich zurückgesetzt!");
+                    //alert("Glas erfolgreich zurückgesetzt!");
                 } else {
                     alert("Fehler beim Zurücksetzen: " + data.error);
                 }

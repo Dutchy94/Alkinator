@@ -492,6 +492,7 @@ def toggle_reglerfreigabe():
     try:
         # Verbindung zur SPS herstellen
         sps = SPSKommunikation(get_sps_ip())
+        logging.info("Reglerfreigabe angefordert")
         
         # Aktuellen Wert des Bits auslesen
         db_number = 100
@@ -499,7 +500,7 @@ def toggle_reglerfreigabe():
         bit_index = 1
         current_byte = sps.read_db(db_number, byte_index, 1)[0]
         current_bit = (current_byte >> bit_index) & 1
-        
+        logging.info(f"Status Reglerfreigabe:{current_bit}")
         # Bit invertieren
         new_bit = 0 if current_bit else 1
         new_byte = (current_byte & ~(1 << bit_index)) | (new_bit << bit_index)
@@ -524,6 +525,15 @@ def glas_entnommen():
         string_data = struct.pack(">BB20s", 20, 0, b"")  # STRING[20] auf '' setzen
         
         sps.write_db(db_number, start_address, string_data)
+                # SPS-Bit setzen
+        #db_number = 100
+        #byte_index = 1  # Byte-Offset in der DB
+        #bit_index = 3   # Bit im Byte
+        #logging.info(f"Setze Bit {bit_index} in DB {db_number}, Byte {byte_index}...")
+        
+        # Bit setzen
+        #sps.set_bit(db_number, byte_index, bit_index, True)
+        #logging.info("Bit erfolgreich gesetzt.")
         sps.disconnect()
         return jsonify({"success": True})
     except Exception as e:
@@ -812,7 +822,7 @@ def order_cocktail(id):
 
 
 
-
+#
 @app.route('/dashboard', methods=['GET'])
 def dashboard():
     try:
