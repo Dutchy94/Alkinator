@@ -18,12 +18,12 @@ Please note that **Alkinator is currently under active development**, and featur
 ## Getting Started
 
 ### Prerequisites
-- [List dependencies/software needed, e.g., Python 3.9+, specific libraries, etc.]
-
+- missing
+  
 ### Installation (Missing the PLC-Sided informations)
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/alkinator.git
+   git clone https://github.com/Dutchy94/alkinator.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -35,8 +35,7 @@ Please note that **Alkinator is currently under active development**, and featur
    ```
 
 ### Usage
-- [Add instructions on how to run or use the tool, e.g., `python main.py`]
-
+- missing
 ---
 
 ## Contributing
@@ -58,6 +57,8 @@ If you'd like to help, please:
 5. Open a pull request.
 
 ---
+## See on YouTube
+-Link einfügen
 
 ## License
 
