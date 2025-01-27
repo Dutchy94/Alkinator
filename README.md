@@ -1,7 +1,7 @@
 
 # Alkinator
 
-**Alkinator** is an ongoing project designed to [briefly describe what Alkinator does, e.g., "simulate XYZ," "process data for ABC," or "serve as a tool for..."]. This repository contains the codebase and related resources for the project.
+**Alkinator** is an ongoing project designed to mix Cocktails.
 
 ## 🚧 Project Status: In Development  
 Please note that **Alkinator is currently under active development**, and features or functionality may not yet be complete or stable. Contributions and feedback are welcome, but use this software at your own risk for now.
